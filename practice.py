@@ -31,6 +31,8 @@ while playing:
     background.draw(b2, -30)
     character.clip_draw(frame* 35, 45, 35, 40, 20, 20)
     update_canvas()
+
+    key_event()
     frame = (frame + 1) % 6
     b1 -= 1
     b2 -= 1
