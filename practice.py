@@ -3,14 +3,16 @@ from pico2d import*
 def key_event():
     global frame
     global playing
-    
+
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
             playing = False
+
         elif event.type == SDL_KEYDOWN:
             if event.key == SDLK_ESCAPE:
                 playing = False
+
             elif event.key == SDLK_SPACE:
                 character.clip_draw(frame * 35, 0, 35, 40, 20, 40)
                 update_canvas()
@@ -38,7 +40,7 @@ while playing:
     frame = (frame + 1) % 6
     b1 -= 1
     b2 -= 1
+
     delay(0.03)
-    get_events()
 
 close_canvas()
