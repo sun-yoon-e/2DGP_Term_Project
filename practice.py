@@ -16,18 +16,18 @@ def key_event():
 
     pass
 
-open_canvas(800, 155)
+open_canvas(1300, 600)
 
 background = load_image('p2.png')
 character = load_image('char.png')
 
 frame = 0
-b1, b2 = 633, 633
+b1, b2 = 2560, 2560
 
 while True:
     clear_canvas()
-    background.draw(b1, 101)
-    background.draw(b2, -60)
+    background.draw(b1, 390)
+    background.draw(b2, -240)
 
     character.clip_draw(frame * 35, 45, 35, 40, 20, 20)
     update_canvas()
