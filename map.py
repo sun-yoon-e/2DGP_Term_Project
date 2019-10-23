@@ -1,6 +1,6 @@
 from pico2d import*
 
-open_canvas(1200, 290)
+open_canvas(800, 290)
 
 map1 = load_image('map1.png')
 map2 = load_image('map2.png')
