@@ -8,7 +8,7 @@ class Character:
     def __init__(self):
         self.x, self.y = 100, 50
         self.frame = 0
-        self.image = load_image('character.png')
+        self.image = load_image('resource/using/character.png')
 
     def update(self):
         self.frame = (self.frame + 1) % 6
@@ -20,10 +20,10 @@ class Character:
 class Background:
     def __init__(self):
         self.x1, self.x2, self.x3, self.x4 = 1441, 2882, 2882, 2882
-        self.image1 = load_image('map1.png')
-        self.image2 = load_image('map2.png')
-        self.image3 = load_image('map3.png')
-        self.image4 = load_image('map4.png')
+        self.image1 = load_image('resource/using/map1.png')
+        self.image2 = load_image('resource/using/map2.png')
+        self.image3 = load_image('resource/using/map3.png')
+        self.image4 = load_image('resource/using/map4.png')
 
     def update(self):
         if self.x1 >= -1441:
