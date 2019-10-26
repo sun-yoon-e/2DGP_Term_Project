@@ -7,7 +7,7 @@ image = None
 
 
 def enter():
-    global  image
+    global image
     image = load_image('resource/@Using/select.png')
 
 
@@ -28,14 +28,14 @@ def handle_events():
                 game_framework.change_state(main)
 
 
+def update():
+    pass
+
+
 def draw():
     clear_canvas()
     image.draw(400, 145, 800, 290)
     update_canvas()
-
-
-def update():
-    pass
 
 
 def pause():

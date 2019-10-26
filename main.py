@@ -31,13 +31,13 @@ class Background:
 
     def update(self):
         if self.x1 >= -1441:
-            self.x1 -= 50
+            self.x1 -= 5
         if self.x1 <= 0 and self.x2 >= -1441:
-            self.x2 -= 50
+            self.x2 -= 5
         if self.x2 <= 0 and self.x3 >= -1441:
-            self.x3 -= 50
+            self.x3 -= 5
         if self.x3 <= 0 and self.x4 >= -1441:
-            self.x4 -= 10
+            self.x4 -= 5
 
     def draw(self):
         if self.x1 >= -1441:
@@ -85,7 +85,7 @@ def handle_events():
         if event.type == SDL_QUIT:
             game_framework.quit()
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
-            game_framework.change_state(title)
+            game_framework.change_state(select)
 
 
 def update():
