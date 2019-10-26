@@ -1,4 +1,5 @@
 from pico2d import*
+import character
 
 open_canvas(800, 290)
 
