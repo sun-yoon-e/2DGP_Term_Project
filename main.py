@@ -1,4 +1,8 @@
+import game_framework
+import select
 from pico2d import *
+
+name = "main"
 
 character = None
 background = None
@@ -27,13 +31,13 @@ class Background:
 
     def update(self):
         if self.x1 >= -1441:
-            self.x1 -= 5
+            self.x1 -= 50
         if self.x1 <= 0 and self.x2 >= -1441:
-            self.x2 -= 5
+            self.x2 -= 50
         if self.x2 <= 0 and self.x3 >= -1441:
-            self.x3 -= 5
+            self.x3 -= 50
         if self.x3 <= 0 and self.x4 >= -1441:
-            self.x4 -= 5
+            self.x4 -= 10
 
     def draw(self):
         if self.x1 >= -1441:
@@ -50,7 +54,7 @@ class Background:
             self.image3.clip_draw(0, 500, 2882, 325, self.x3, 160)
 
         if self.x3 <= 0 and self.x4 >= -1441:
-            self.image4.clip_draw(0, 0, 2882, 350, self.x4, 145)
+            self.image4.clip_draw(0, 0, 2882, 350, self.x4, 155)
             self.image4.clip_draw(0, 600, 2882, 340, self.x4, 100)
             self.image4.clip_draw(0, 305, 2882, 330, self.x4, 160)
 
@@ -76,7 +80,12 @@ def resume():
 
 
 def handle_events():
-    pass
+    events = get_events()
+    for event in events:
+        if event.type == SDL_QUIT:
+            game_framework.quit()
+        elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
+            game_framework.change_state(title)
 
 
 def update():
