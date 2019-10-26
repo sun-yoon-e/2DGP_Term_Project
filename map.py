@@ -7,7 +7,7 @@ map1 = load_image('map1.png')
 map2 = load_image('map2.png')
 map3 = load_image('map3.png')
 map4 = load_image('map4.png')
-
+character.enter()
 b1, b2, b3, b4 = 1441, 2882, 2882, 2882
 
 while True:
@@ -35,6 +35,8 @@ while True:
         map4.clip_draw(0, 305, 2882, 330, b4, 160)
         b4 -= 5
 
+    character.draw()
+    character.update()
     update_canvas()
     delay(0.03)
 
