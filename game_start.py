@@ -12,39 +12,57 @@ background = None
 
 class Obstacle:
     def __init__(self):
-        self.x, self.y = random.randint(800, 1000), 30
+        self.x, self.y = 900, 30
+        self.random_x = random.randint(200, 500)
         self.frame = 0
         self.pink = load_image('resource/@Using/obstacle_pink.png')
         self.violet = load_image('resource/@Using/obstacle_violet.png')
 
     def update(self):
         self.frame = (self.frame + 1) % 4
-        if (self.x+300 <= 0):
-            self.x = random.randint(800, 1000)
-        self.x -= 5
-        #if (self.move1 == 0):
-        #    self.move1 = 500
-        #elif (self.move2 == 0):
-        #    self.move2 = 700
-        #self.move1 -= 5
-        #self.move2 -= 5
+        if (self.x + self.random_x + 300 <= -0):
+            self.x = 900
+            self.random_x = random.randint(200, 500)
+        self.x -= 10
 
     def draw(self):
-        #if (self.x % 100 == 0):
         self.pink.clip_draw(self.frame * 30, 0, 30, 35, self.x, self.y)
-        self.violet.clip_draw(self.frame * 30, 0, 30, 35, self.x + 300, self.y)
+        self.violet.clip_draw(self.frame * 30, 0, 30, 35, self.x + self.random_x, self.y)
+        if (self.x <= 300):
+            self.violet.clip_draw(self.frame * 30, 0, 30, 35, self.x + 300, self.y)
+            self.pink.clip_draw(self.frame * 30, 0, 30, 35, self.x + self.random_x + 300, self.y)
 
-class Character:
+
+class Spongebob:
     def __init__(self):
         self.x, self.y = 100, 50
         self.frame = 0
-        self.image = load_image('resource/@Using/character.png')
+        self.image = load_image('resource/@Using/spongebob.png')
 
     def update(self):
         self.frame = (self.frame + 1) % 6
 
     def draw(self):
         self.image.clip_draw(self.frame * 83, 110, 83, 90, self.x, self.y)
+
+    def handle_events(self):
+        events = get_events()
+        for event in events:
+            if event.type == SDL_KEYDOWN and event.key == SDLK_UP:
+                self.image.clip_draw(self.frame * 83, 0, 83, 90, self.x, self.y)
+
+
+class Patrick:
+    def __init__(self):
+        self.x, self.y = 100, 50
+        self.frame = 0
+        self.image = load_image('resource/@Using/patrick.png')
+
+    def update(self):
+        self.frame = (self.frame + 1) % 6
+
+    def draw(self):
+        self.image.clip_draw(self.frame * 78, 0, 78, 93, self.x, self.y)
 
 class Background:
     def __init__(self):
@@ -85,16 +103,16 @@ class Background:
 
 
 def enter():
-    global obstacle, character, background
+    global obstacle, spongebob, background
     obstacle = Obstacle()
-    character = Character()
+    spongebob = Spongebob()
     background = Background()
 
 
 def exit():
-    global obstacle, character, background
+    global obstacle, spongebob, background
     del(obstacle)
-    del(character)
+    del(spongebob)
     del(background)
 
 
@@ -113,18 +131,20 @@ def handle_events():
             game_framework.quit()
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             game_framework.change_state(character_select)
+        elif event.type == SDL_KEYDOWN and event.key == SDLK_UP:
+            Spongebob.handle_events(spongebob)
 
 
 def update():
     obstacle.update()
-    character.update()
+    spongebob.update()
     background.update()
 
 
 def draw():
     clear_canvas()
     background.draw()
-    character.draw()
+    spongebob.draw()
     obstacle.draw()
     update_canvas()
     delay(0.03)
