@@ -1,12 +1,36 @@
 import game_framework
-import select
+import character_select
 from pico2d import *
 
 name = "main"
 
+obstacle = None
 character = None
 background = None
 
+
+class Obstacle:
+    def __init__(self):
+        self.x, self.y = 0, 50
+        self.frame = 0
+        self.move1, self.move2 = 500, 700
+        self.pink = load_image('resource/@Using/obstacle_pink.png')
+        self.violet = load_image('resource/@Using/obstacle_violet.png')
+
+    def update(self):
+        self.frame = (self.frame + 1) % 4
+        self.x -= 100
+        if (self.move1 == 0):
+            self.move1 = 500
+        elif (self.move2 == 0):
+            self.move2 = 700
+        self.move1 -= 5
+        self.move2 -= 5
+
+    def draw(self):
+        if (self.x % 100 == 0):
+            self.pink.clip_draw(self.frame * 30, 0, 30, 35, self.move1, self.y)
+            self.violet.clip_draw(self.frame * 30, 0, 30, 35, self.move2, self.y)
 
 class Character:
     def __init__(self):
@@ -19,7 +43,6 @@ class Character:
 
     def draw(self):
         self.image.clip_draw(self.frame * 83, 110, 83, 90, self.x, self.y)
-
 
 class Background:
     def __init__(self):
@@ -60,13 +83,15 @@ class Background:
 
 
 def enter():
-    global character, background
+    global obstacle, character, background
+    obstacle = Obstacle()
     character = Character()
     background = Background()
 
 
 def exit():
-    global character, background
+    global obstacle, character, background
+    del(obstacle)
     del(character)
     del(background)
 
@@ -85,10 +110,11 @@ def handle_events():
         if event.type == SDL_QUIT:
             game_framework.quit()
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
-            game_framework.change_state(select)
+            game_framework.change_state(character_select)
 
 
 def update():
+    obstacle.update()
     character.update()
     background.update()
 
@@ -97,5 +123,7 @@ def draw():
     clear_canvas()
     background.draw()
     character.draw()
+    obstacle.draw()
     update_canvas()
     delay(0.03)
+
