@@ -1,5 +1,6 @@
 import game_framework
 import character_select
+import random
 from pico2d import *
 
 name = "main"
@@ -11,26 +12,27 @@ background = None
 
 class Obstacle:
     def __init__(self):
-        self.x, self.y = 0, 50
+        self.x, self.y = random.randint(800, 1000), 30
         self.frame = 0
-        self.move1, self.move2 = 500, 700
         self.pink = load_image('resource/@Using/obstacle_pink.png')
         self.violet = load_image('resource/@Using/obstacle_violet.png')
 
     def update(self):
         self.frame = (self.frame + 1) % 4
-        self.x -= 100
-        if (self.move1 == 0):
-            self.move1 = 500
-        elif (self.move2 == 0):
-            self.move2 = 700
-        self.move1 -= 5
-        self.move2 -= 5
+        if (self.x+300 <= 0):
+            self.x = random.randint(800, 1000)
+        self.x -= 5
+        #if (self.move1 == 0):
+        #    self.move1 = 500
+        #elif (self.move2 == 0):
+        #    self.move2 = 700
+        #self.move1 -= 5
+        #self.move2 -= 5
 
     def draw(self):
-        if (self.x % 100 == 0):
-            self.pink.clip_draw(self.frame * 30, 0, 30, 35, self.move1, self.y)
-            self.violet.clip_draw(self.frame * 30, 0, 30, 35, self.move2, self.y)
+        #if (self.x % 100 == 0):
+        self.pink.clip_draw(self.frame * 30, 0, 30, 35, self.x, self.y)
+        self.violet.clip_draw(self.frame * 30, 0, 30, 35, self.x + 300, self.y)
 
 class Character:
     def __init__(self):
