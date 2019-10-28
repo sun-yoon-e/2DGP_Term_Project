@@ -1,6 +1,6 @@
 from pico2d import *
 
-SPACE_UP, SPACE_DOWN, RUN_TIMER = range(3)
+SPACE_UP, SPACE_DOWN = range(2)
 
 key_event_table = {
     (SDL_KEYDOWN, SDLK_SPACE): SPACE_DOWN,
@@ -54,8 +54,8 @@ class JumpState:
 
 
 next_state_table = {
-    RunState: {SPACE_DOWN: JumpState, SPACE_UP: JumpState, RUN_TIMER: RunState},
-    JumpState: {SPACE_DOWN: JumpState, SPACE_UP: RunState, RUN_TIMER: RunState}
+    RunState: {SPACE_DOWN: JumpState, SPACE_UP: RunState},
+    JumpState: {SPACE_DOWN: JumpState, SPACE_UP: RunState}
 }
 
 

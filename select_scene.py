@@ -38,7 +38,7 @@ def handle_events():
 def update():
     global frame1, frame2
     frame1 = (frame1 + 1) % 5
-    frame2 = (frame2 + 1) % 3
+    frame2 = (frame2 + 1) % 4
 
 
 def draw():
@@ -46,9 +46,10 @@ def draw():
     clear_canvas()
     image.draw(400, 145, 800, 290)
     spongebob.clip_draw(frame1 * 100, 0, 100, 120, 300, 80)
-    patrick.clip_draw(frame2 * 105, 0, 105, 120, 500, 80)
+    #patrick.clip_draw(frame2 * 109, 0, 109, 130, 500, 80)
+    patrick.clip_draw(frame2 * 100, 0, 100, 141, 500, 90)
     update_canvas()
-    delay(0.1)
+    delay(0.13)
 
 
 def pause():
