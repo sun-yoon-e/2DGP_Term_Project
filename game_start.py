@@ -7,30 +7,34 @@ from pico2d import *
 import game_framework
 import select_scene
 
-from obstacle_jellyfish import Jellyfish
+from obstacle_pink_jellyfish import Pink_Jellyfish
+from obstacle_violet_jellyfish import Violet_Jellyfish
 from background import Background
 from character_patrick import Patrick
 from character_spongebob import Spongebob
 
 name = "main"
 
-obstacle_jellyfish = None
+obstacle_pink_jellyfish = None
+obstacle_violet_jellyfish = None
 character_spongebob = None
 character_patrick = None
 background = None
 
 
 def enter():
-    global obstacle_jellyfish, character_spongebob, character_patrick, background
-    obstacle_jellyfish = Jellyfish()
+    global obstacle_pink_jellyfish, obstacle_violet_jellyfish, character_spongebob, character_patrick, background
+    obstacle_pink_jellyfish = Pink_Jellyfish()
+    obstacle_violet_jellyfish = Violet_Jellyfish()
     character_spongebob = Spongebob()
     #character_patrick = Patrick()
     background = Background()
 
 
 def exit():
-    global obstacle_jellyfish, character_spongebob, character_patrick, background
-    del obstacle_jellyfish
+    global obstacle_pink_jellyfish, obstacle_violet_jellyfish, character_spongebob, character_patrick, background
+    del obstacle_pink_jellyfish
+    del obstacle_violet_jellyfish
     del character_spongebob
     del character_patrick
     del background
@@ -57,7 +61,8 @@ def handle_events():
 
 
 def update():
-    obstacle_jellyfish.update()
+    obstacle_pink_jellyfish.update()
+    obstacle_violet_jellyfish.update()
     character_spongebob.update()
     #character_patrick.update()
     background.update()
@@ -68,7 +73,8 @@ def draw():
     background.draw()
     character_spongebob.draw()
     #character_patrick.draw()
-    obstacle_jellyfish.draw()
+    obstacle_pink_jellyfish.draw()
+    obstacle_violet_jellyfish.draw()
     update_canvas()
     delay(0.03)
 
