@@ -1,5 +1,5 @@
 import game_framework
-import character_select
+import select_scene
 from pico2d import *
 
 name = "start"
@@ -26,7 +26,7 @@ def update():
 
     if time > 3.0:
         time = 0
-        game_framework.change_state(character_select)
+        game_framework.change_state(select_scene)
     delay(0.01)
     time += 0.01
 
