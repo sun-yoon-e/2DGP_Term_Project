@@ -4,16 +4,23 @@ from pico2d import *
 
 name = "select"
 image = None
+spongebob = None
+patrick = None
 
 
 def enter():
-    global image
+    global image, spongebob, patrick, frame1, frame2
     image = load_image('resource/@Using/select.png')
+    spongebob = load_image('resource/@Using/spongebob_select.png')
+    patrick = load_image('resource/@Using/patrick_select.png')
+    frame1, frame2 = 0, 0
 
 
 def exit():
-    global image
-    del(image)
+    global image, spongebob, patrick
+    del image
+    del spongebob
+    del patrick
 
 
 def handle_events():
@@ -29,13 +36,19 @@ def handle_events():
 
 
 def update():
-    pass
+    global frame1, frame2
+    frame1 = (frame1 + 1) % 5
+    frame2 = (frame2 + 1) % 3
 
 
 def draw():
+    global frame1, frame2
     clear_canvas()
     image.draw(400, 145, 800, 290)
+    spongebob.clip_draw(frame1 * 100, 0, 100, 120, 300, 80)
+    patrick.clip_draw(frame2 * 105, 0, 105, 120, 500, 80)
     update_canvas()
+    delay(0.1)
 
 
 def pause():

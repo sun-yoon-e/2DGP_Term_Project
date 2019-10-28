@@ -14,6 +14,8 @@ class RunState:
     @staticmethod
     def enter(character_spongebob, event):
         character_spongebob.frame = 0
+        character_spongebob.x = 100
+        character_spongebob.y = 50
 
     @staticmethod
     def exit(character_spongebob, event):
@@ -42,9 +44,9 @@ class JumpState:
     @staticmethod
     def do(character_spongebob):
         global angle, radian, pi
-        character_spongebob.frame = (character_spongebob.frame + 1) % 4
+        character_spongebob.frame = (character_spongebob.frame + 1) % 3
         radian = math.radians(angle)
-        character_spongebob.y = 175 * math.sin(radian * pi) + (75 + 115)
+        character_spongebob.y = 180 * math.sin(radian * pi) + 100
 
     @staticmethod
     def draw(character_spongebob):
