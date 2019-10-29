@@ -1,5 +1,6 @@
 from pico2d import *
 
+
 class Background:
     def __init__(self):
         self.x1, self.x2, self.x3, self.x4 = 1441, 2882, 2882, 2882

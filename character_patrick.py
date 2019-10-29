@@ -10,6 +10,7 @@ key_event_table = {
 pi = 3.141592
 angle = 0
 
+
 class RunState:
     @staticmethod
     def enter(character_patrick, event):

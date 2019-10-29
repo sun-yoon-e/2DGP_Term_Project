@@ -14,7 +14,7 @@ class Violet_Jellyfish:
 
     def update(self):
         self.frame = (self.frame + 1) % 4
-        if (self.x + self.random_x + 300 <= -0):
+        if self.x + self.random_x + 300 <= -0:
             self.x = 1000
             self.random_x = random.randint(0, 500)
         self.x -= 10
