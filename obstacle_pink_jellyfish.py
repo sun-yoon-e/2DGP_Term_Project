@@ -21,5 +21,5 @@ class Pink_Jellyfish:
 
     def draw(self):
         self.image.clip_draw(self.frame * 30, 0, 30, 35, self.x, self.y)
-        if (self.x <= 300):
+        if (self.x <= 800):
             self.image.clip_draw(self.frame * 30, 0, 30, 35, self.x + self.random_x + 300, self.y)
