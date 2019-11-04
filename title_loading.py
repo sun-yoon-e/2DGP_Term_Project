@@ -2,7 +2,7 @@ import game_framework
 import select_scene
 from pico2d import *
 
-name = "start"
+name = "title&loading"
 image1, image2, image3 = None, None, None
 time = 0.0
 
@@ -16,9 +16,9 @@ def enter():
 
 def exit():
     global image1, image2, image3
-    del(image1)
-    del(image2)
-    del(image3)
+    del image1
+    del image2
+    del image3
 
 
 def update():
@@ -36,7 +36,7 @@ def draw():
     clear_canvas()
     if time < 1.0:
         image1.draw(400, 145, 800, 290)
-    elif time >= 1.0 and time < 2.0:
+    elif 1.0 <= time < 2.0:
         image2.draw(400, 145, 800, 290)
     elif time >= 2.0:
         image3.draw(400, 145, 800, 290)
