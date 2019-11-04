@@ -36,7 +36,7 @@ def exit():
     del obstacle_pink_jellyfish
     del obstacle_violet_jellyfish
     del character_spongebob
-    del character_patrick
+    #del character_patrick
     del background
 
 

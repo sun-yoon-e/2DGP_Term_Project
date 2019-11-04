@@ -1,5 +1,5 @@
 import game_framework
-import game_start
+import game_main
 from pico2d import *
 
 name = "select"
@@ -32,7 +32,7 @@ def handle_events():
             if (event.type, event.key) == (SDL_KEYDOWN, SDLK_ESCAPE):
                 game_framework.quit()
             elif (event.type, event.key) == (SDL_KEYDOWN, SDLK_SPACE):
-                game_framework.change_state(game_start)
+                game_framework.change_state(game_main)
 
 
 def update():
