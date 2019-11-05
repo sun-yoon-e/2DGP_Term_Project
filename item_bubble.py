@@ -13,7 +13,7 @@ class Bubble:
 
     def update(self):
         if self.x <= 0:
-            self.x = 3000
+            self.x = random.randint(2000, 6000)
         self.x -= 10
 
     def draw(self):

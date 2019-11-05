@@ -15,6 +15,7 @@ class Balloon:
     def update(self):
         if self.x <= 0:
             self.x = random.randint(3000, 6000)
+            self.frame = random.randint(0, 3)
         self.x -= 10
 
     def draw(self):
