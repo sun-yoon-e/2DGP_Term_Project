@@ -6,7 +6,7 @@ class Mr_krab:
     image = None
 
     def __init__(self):
-        self.x, self.y = 3000, 30
+        self.x, self.y = 3000, 40
 
         if Mr_krab.image is None:
             Mr_krab.image = load_image('resource/@Using/item_mr.krab.png')
