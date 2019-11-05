@@ -14,6 +14,7 @@ from character_patrick import Patrick
 from character_spongebob import Spongebob
 from item_mr_krab import Mr_krab
 from item_bubble import Bubble
+from item_balloon import Balloon
 
 name = "main"
 
@@ -23,28 +24,31 @@ character_spongebob = None
 character_patrick = None
 mr_krab = None
 bubble = None
+balloon = None
 background = None
 
 
 def enter():
-    global obstacle_pink_jellyfish, obstacle_violet_jellyfish, character_spongebob, character_patrick, mr_krab, bubble, background
+    global obstacle_pink_jellyfish, obstacle_violet_jellyfish, character_spongebob, character_patrick, mr_krab, bubble, balloon, background
     obstacle_pink_jellyfish = Pink_Jellyfish()
     obstacle_violet_jellyfish = Violet_Jellyfish()
     character_spongebob = Spongebob()
     #character_patrick = Patrick()
     mr_krab = Mr_krab()
     bubble = Bubble()
+    balloon = Balloon()
     background = Background()
 
 
 def exit():
-    global obstacle_pink_jellyfish, obstacle_violet_jellyfish, character_spongebob, character_patrick, mr_krab, bubble, background
+    global obstacle_pink_jellyfish, obstacle_violet_jellyfish, character_spongebob, character_patrick, mr_krab, bubble, balloon, background
     del obstacle_pink_jellyfish
     del obstacle_violet_jellyfish
     del character_spongebob
     #del character_patrick
     del mr_krab
     del bubble
+    del balloon
     del background
 
 
@@ -75,6 +79,7 @@ def update():
     #character_patrick.update()
     mr_krab.update()
     bubble.update()
+    balloon.update()
     background.update()
 
 
@@ -87,5 +92,6 @@ def draw():
     obstacle_violet_jellyfish.draw()
     mr_krab.draw()
     bubble.draw()
+    balloon.draw()
     update_canvas()
     delay(0.03)
