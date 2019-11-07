@@ -20,27 +20,37 @@ from item_balloon import Balloon
 
 name = "game_main"
 
+background = None
+obstacle_hand = None
 obstacle_pink_jellyfish = None
 obstacle_violet_jellyfish = None
-obstacle_hand = None
+item_balloon = None
+item_bubble = None
+item_mr_krab = None
 character_spongebob = None
 character_patrick = None
-item_mr_krab = None
-item_bubble = None
-item_balloon = None
-background = None
 
 
 def enter():
     global obstacle_pink_jellyfish, obstacle_violet_jellyfish, obstacle_hand, character_spongebob, character_patrick, item_mr_krab, item_bubble, item_balloon, background
+    background = Background()
+    obstacle_hand = Hand()
+    obstacle_pink_jellyfish = Pink_Jellyfish()
+    obstacle_violet_jellyfish = Violet_Jellyfish()
+    item_balloon = Balloon()
+    item_bubble = Bubble()
+    item_mr_krab = Mr_krab()
+    character_spongebob = Spongebob()
+    #character_patrick = Patrick()
+
     game_world.add_object(background, 0)
-    game_world.add_object(character_spongebob, 1)
-    game_world.add_object(obstacle_hand, 2)
-    game_world.add_object(obstacle_pink_jellyfish, 3)
-    game_world.add_object(obstacle_violet_jellyfish, 4)
-    game_world.add_object(item_balloon, 5)
-    game_world.add_object(item_bubble, 6)
-    game_world.add_object(item_mr_krab, 7)
+    game_world.add_object(obstacle_hand, 1)
+    game_world.add_object(obstacle_pink_jellyfish, 2)
+    game_world.add_object(obstacle_violet_jellyfish, 3)
+    game_world.add_object(item_balloon, 4)
+    game_world.add_object(item_bubble, 5)
+    game_world.add_object(item_mr_krab, 6)
+    game_world.add_object(character_spongebob, 7)
     #game_world.add_object(character_patrick, 8)
 
 
