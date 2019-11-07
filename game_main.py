@@ -7,6 +7,7 @@ from pico2d import *
 import game_framework
 import game_world
 import select_scene
+import pause_scene
 
 from obstacle_pink_jellyfish import Pink_Jellyfish
 from obstacle_violet_jellyfish import Violet_Jellyfish
@@ -72,8 +73,10 @@ def handle_events():
     for event in events:
         if event.type == SDL_QUIT:
             game_framework.quit()
-        elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
-            game_framework.change_state(select_scene)
+        #elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
+            #game_framework.change_state(select_scene)
+        elif event.type == SDL_KEYDOWN and event.key == SDLK_p:
+            game_framework.push_state(pause_scene)
         else:
             character_spongebob.handle_events(event)
             #character_patrick.handle_events(event)
