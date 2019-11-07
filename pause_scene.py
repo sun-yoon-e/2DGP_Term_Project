@@ -14,6 +14,7 @@ class Pause:
 
     def draw(self):
         self.image_back.draw(400, 145, 800, 290)
+        #self.image_back.composite_draw(3.141592 / 2, '', 400, 145, 290, 800)
         self.image_continue.draw(400, 210)
         self.image_quit.draw(400, 70)
 
