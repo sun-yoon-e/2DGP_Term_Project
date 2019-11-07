@@ -18,7 +18,7 @@ from item_mr_krab import Mr_krab
 from item_bubble import Bubble
 from item_balloon import Balloon
 
-name = "main"
+name = "game_main"
 
 obstacle_pink_jellyfish = None
 obstacle_violet_jellyfish = None
@@ -33,28 +33,20 @@ background = None
 
 def enter():
     global obstacle_pink_jellyfish, obstacle_violet_jellyfish, obstacle_hand, character_spongebob, character_patrick, item_mr_krab, item_bubble, item_balloon, background
-    obstacle_pink_jellyfish = Pink_Jellyfish()
-    obstacle_violet_jellyfish = Violet_Jellyfish()
-    obstacle_hand = Hand()
-    character_spongebob = Spongebob()
-    #character_patrick = Patrick()
-    item_mr_krab = Mr_krab()
-    item_bubble = Bubble()
-    item_balloon = Balloon()
-    background = Background()
+    game_world.add_object(background, 0)
+    game_world.add_object(character_spongebob, 1)
+    game_world.add_object(obstacle_hand, 2)
+    game_world.add_object(obstacle_pink_jellyfish, 3)
+    game_world.add_object(obstacle_violet_jellyfish, 4)
+    game_world.add_object(item_balloon, 5)
+    game_world.add_object(item_bubble, 6)
+    game_world.add_object(item_mr_krab, 7)
+    #game_world.add_object(character_patrick, 8)
 
 
 def exit():
     global obstacle_pink_jellyfish, obstacle_violet_jellyfish, obstacle_hand, character_spongebob, character_patrick, item_mr_krab, item_bubble, item_balloon, background
-    del obstacle_pink_jellyfish
-    del obstacle_violet_jellyfish
-    del obstacle_hand
-    del character_spongebob
-    #del character_patrick
-    del item_mr_krab
-    del item_bubble
-    del item_balloon
-    del background
+    game_world.clear()
 
 
 def pause():
@@ -78,27 +70,13 @@ def handle_events():
 
 
 def update():
-    obstacle_pink_jellyfish.update()
-    obstacle_violet_jellyfish.update()
-    obstacle_hand.update()
-    character_spongebob.update()
-    #character_patrick.update()
-    item_mr_krab.update()
-    item_bubble.update()
-    item_balloon.update()
-    background.update()
+    for game_object in game_world.all_objects():
+        game_object.update()
 
 
 def draw():
     clear_canvas()
-    background.draw()
-    character_spongebob.draw()
-    #character_patrick.draw()
-    obstacle_pink_jellyfish.draw()
-    obstacle_violet_jellyfish.draw()
-    obstacle_hand.draw()
-    item_mr_krab.draw()
-    item_bubble.draw()
-    item_balloon.draw()
+    for game_object in game_world.all_objects():
+        game_object.draw()
     update_canvas()
     delay(0.03)

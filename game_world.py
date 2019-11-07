@@ -1,7 +1,15 @@
 
 # layer 0: Background Objects
-# layer 1: Foreground Objects
-objects = [[],[]]
+# layer 1: Spongebob Objects
+# layer 8: Patrick Objects
+# layer 2: Hand Objects
+# layer 3: Pink jelly Objects
+# layer 4: Violet fish Objects
+# layer 5: Balloon Objects
+# layer 6: Bubble Objects
+# layer 7: Krab Objects
+
+objects = [[],[],[],[],[],[],[],[]]
 
 
 def add_object(o, layer):
