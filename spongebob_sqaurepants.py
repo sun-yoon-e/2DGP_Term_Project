@@ -1,7 +1,7 @@
 import game_framework
 import pico2d
-import title_loading
+import loading_scene
 
 pico2d.open_canvas(800,290)
-game_framework.run(title_loading)
+game_framework.run(loading_scene)
 pico2d.close_canvas()
