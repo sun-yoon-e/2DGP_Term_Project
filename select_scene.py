@@ -34,9 +34,9 @@ def handle_events():
             #elif (event.type, event.key) == (SDL_KEYDOWN, SDLK_SPACE):
                 #game_framework.change_state(game_main)
             elif (event.type, event.button) == (SDL_MOUSEBUTTONDOWN, SDL_BUTTON_LEFT):
-                if (250 < event.x < 350 and 20 < event.y < 140):
-                    pass
-                elif (450 < event.x < 550 and 20 < event.y < 160):
+                if (250 < event.x < 350 and 20 < 290 - 1 - event.y < 140):
+                    game_framework.change_state(game_main)
+                elif (450 < event.x < 550 and 20 < 290- 1 - event.y < 160):
                     pass
 
 
