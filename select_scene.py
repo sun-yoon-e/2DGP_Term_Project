@@ -6,6 +6,7 @@ name = "select"
 image = None
 spongebob = None
 patrick = None
+select = True
 
 
 def enter():
