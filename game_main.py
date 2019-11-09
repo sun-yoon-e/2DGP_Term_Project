@@ -42,8 +42,10 @@ def enter():
     item_balloon = Balloon()
     item_bubble = Bubble()
     item_mr_krab = Mr_krab()
-    character_spongebob = Spongebob()
-    #character_patrick = Patrick()
+    if select:
+        character_spongebob = Spongebob()
+    else:
+        character_patrick = Patrick()
 
     game_world.add_object(background, 0)
     game_world.add_object(obstacle_hand, 1)
@@ -81,8 +83,10 @@ def handle_events():
         elif event.type == SDL_KEYDOWN and event.key == SDLK_p:
             game_framework.push_state(pause_scene)
         else:
-            character_spongebob.handle_events(event)
-            #character_patrick.handle_events(event)
+            if select:
+                character_spongebob.handle_events(event)
+            else:
+                character_patrick.handle_events(event)
 
 
 def update():
