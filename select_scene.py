@@ -25,6 +25,7 @@ def exit():
 
 
 def handle_events():
+    global select
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
