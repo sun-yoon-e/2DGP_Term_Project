@@ -6,9 +6,10 @@ from pico2d import *
 
 import game_framework
 import game_world
-import select_scene
+#import select_scene
 import pause_scene
 
+from select_scene import select
 from obstacle_pink_jellyfish import Pink_Jellyfish
 from obstacle_violet_jellyfish import Violet_Jellyfish
 from obstacle_hand import Hand
@@ -51,8 +52,10 @@ def enter():
     game_world.add_object(item_balloon, 4)
     game_world.add_object(item_bubble, 5)
     game_world.add_object(item_mr_krab, 6)
-    game_world.add_object(character_spongebob, 7)
-    #game_world.add_object(character_patrick, 8)
+    if select:
+        game_world.add_object(character_spongebob, 7)
+    else:
+        game_world.add_object(character_patrick, 7)
 
 
 def exit():
