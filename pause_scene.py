@@ -45,10 +45,16 @@ def draw():
 def handle_events():
     events = get_events()
     for event in events:
-        if event.type == SDL_KEYDOWN and event.key == SDLK_p:
-            game_framework.pop_state()
-        elif event.type == SDL_QUIT:
+        if event.type == SDL_QUIT:
             game_framework.quit()
+        #elif event.type == SDL_KEYDOWN and event.key == SDLK_p:
+            #game_framework.pop_state()
+        elif (event.type, event.button) == (SDL_MOUSEBUTTONDOWN, SDL_BUTTON_LEFT):
+            if 100 < event.x < 700 and 170 < 290 - 1 - event.y < 250:
+                game_framework.pop_state()
+            elif 250 < event.x < 550 and 30 < 290 - 1 - event.y < 110:
+                pass
+
 
 
 def pause():

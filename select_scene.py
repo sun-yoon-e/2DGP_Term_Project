@@ -30,18 +30,17 @@ def handle_events():
     for event in events:
         if event.type == SDL_QUIT:
             game_framework.quit()
-        else:
-            if (event.type, event.key) == (SDL_KEYDOWN, SDLK_ESCAPE):
-                game_framework.quit()
-            #elif (event.type, event.key) == (SDL_KEYDOWN, SDLK_SPACE):
-                #game_framework.change_state(game_main)
-            elif (event.type, event.button) == (SDL_MOUSEBUTTONDOWN, SDL_BUTTON_LEFT):
-                if (250 < event.x < 350 and 20 < 290 - 1 - event.y < 140):
-                    select = 1
-                    game_framework.change_state(game_main)
-                elif (450 < event.x < 550 and 20 < 290- 1 - event.y < 160):
-                    select = 2
-                    game_framework.change_state(game_main)
+        elif (event.type, event.key) == (SDL_KEYDOWN, SDLK_ESCAPE):
+            game_framework.quit()
+        # elif (event.type, event.key) == (SDL_KEYDOWN, SDLK_SPACE):
+        # game_framework.change_state(game_main)
+        elif (event.type, event.button) == (SDL_MOUSEBUTTONDOWN, SDL_BUTTON_LEFT):
+            if 250 < event.x < 350 and 20 < 290 - 1 - event.y < 140:
+                select = 1
+                game_framework.change_state(game_main)
+            elif 450 < event.x < 550 and 20 < 290 - 1 - event.y < 160:
+                select = 2
+                game_framework.change_state(game_main)
 
 
 def update():
@@ -55,7 +54,7 @@ def draw():
     clear_canvas()
     image.draw(400, 145, 800, 290)
     spongebob.clip_draw(frame1 * 100, 0, 100, 120, 300, 80)
-    #patrick.clip_draw(frame2 * 109, 0, 109, 130, 500, 80)
+    # patrick.clip_draw(frame2 * 109, 0, 109, 130, 500, 80)
     patrick.clip_draw(frame2 * 100, 0, 100, 141, 500, 90)
     update_canvas()
     delay(0.13)
