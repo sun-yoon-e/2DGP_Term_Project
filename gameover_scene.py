@@ -21,8 +21,8 @@ def enter():
 
 
 def exit():
-    global pause
-    del pause
+    global over
+    del over
 
 
 def update():
