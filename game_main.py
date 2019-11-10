@@ -6,10 +6,9 @@ from pico2d import *
 
 import game_framework
 import game_world
-#import select_scene
+import select_scene
 import pause_scene
 
-from select_scene import select
 from obstacle_pink_jellyfish import Pink_Jellyfish
 from obstacle_violet_jellyfish import Violet_Jellyfish
 from obstacle_hand import Hand
@@ -42,9 +41,9 @@ def enter():
     item_balloon = Balloon()
     item_bubble = Bubble()
     item_mr_krab = Mr_krab()
-    if select:
+    if select_scene.select == 1:
         character_spongebob = Spongebob()
-    else:
+    elif select_scene.select == 2:
         character_patrick = Patrick()
 
     game_world.add_object(background, 0)
@@ -54,9 +53,9 @@ def enter():
     game_world.add_object(item_balloon, 4)
     game_world.add_object(item_bubble, 5)
     game_world.add_object(item_mr_krab, 6)
-    if select:
+    if select_scene.select == 1:
         game_world.add_object(character_spongebob, 7)
-    else:
+    elif select_scene.select == 2:
         game_world.add_object(character_patrick, 7)
 
 
@@ -83,9 +82,9 @@ def handle_events():
         elif event.type == SDL_KEYDOWN and event.key == SDLK_p:
             game_framework.push_state(pause_scene)
         else:
-            if select:
+            if select_scene.select == 1:
                 character_spongebob.handle_events(event)
-            else:
+            elif select_scene.select == 2:
                 character_patrick.handle_events(event)
 
 

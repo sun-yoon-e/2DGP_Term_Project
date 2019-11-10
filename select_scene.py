@@ -6,7 +6,7 @@ name = "select"
 image = None
 spongebob = None
 patrick = None
-select = True
+select = 0
 
 
 def enter():
@@ -37,10 +37,10 @@ def handle_events():
                 #game_framework.change_state(game_main)
             elif (event.type, event.button) == (SDL_MOUSEBUTTONDOWN, SDL_BUTTON_LEFT):
                 if (250 < event.x < 350 and 20 < 290 - 1 - event.y < 140):
-                    select = True
+                    select = 1
                     game_framework.change_state(game_main)
                 elif (450 < event.x < 550 and 20 < 290- 1 - event.y < 160):
-                    select = False
+                    select = 2
                     game_framework.change_state(game_main)
 
 
