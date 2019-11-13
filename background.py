@@ -16,8 +16,10 @@ class Background:
             self.x2 -= 5
         if self.x2 <= 0 and self.x3 >= -1441:
             self.x3 -= 5
-        if self.x3 <= 0 and self.x4 >= -1441:
+        if self.x3 <= 0:# and self.x4 >= -1441:
             self.x4 -= 5
+        if self.x4 <= -641:
+            self.x4 = -641
 
     def draw(self):
         if self.x1 >= -1441:
