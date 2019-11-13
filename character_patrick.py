@@ -1,4 +1,5 @@
 from pico2d import *
+name = "patrick"
 
 SPACE_UP, SPACE_DOWN = range(2)
 

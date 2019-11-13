@@ -1,6 +1,8 @@
 from pico2d import *
 import random
 
+name = "violet_jellyfish"
+
 
 class Violet_Jellyfish:
     image = None

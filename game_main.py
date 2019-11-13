@@ -3,7 +3,6 @@ import json
 import os
 
 from pico2d import *
-
 import game_framework
 import game_world
 import game_success_scene
@@ -21,8 +20,7 @@ from item_mr_krab import Mr_krab
 from item_bubble import Bubble
 from item_balloon import Balloon
 
-name = "game_main"
-
+name = "main"
 background = None
 obstacle_hand = None
 obstacle_pink_jellyfish = None

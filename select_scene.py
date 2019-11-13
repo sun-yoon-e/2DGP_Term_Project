@@ -1,6 +1,6 @@
+from pico2d import *
 import game_framework
 import game_main
-from pico2d import *
 
 name = "select"
 image = None

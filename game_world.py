@@ -1,4 +1,3 @@
-
 # layer 0: Background Objects
 # layer 1: Hand Objects
 # layer 2: Pink jelly Objects

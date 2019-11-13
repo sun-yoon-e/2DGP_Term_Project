@@ -1,6 +1,8 @@
 from pico2d import *
 import random
 
+name = "bubble"
+
 
 class Bubble:
     image = None

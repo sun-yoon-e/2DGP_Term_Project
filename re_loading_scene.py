@@ -1,7 +1,8 @@
+from pico2d import *
 import game_framework
 import select_scene
-from pico2d import *
 
+name = "re-loading"
 re_loading = None
 time = 0.0
 

@@ -1,8 +1,8 @@
+from pico2d import *
 import game_framework
 import select_scene
-from pico2d import *
 
-name = "title&loading"
+name = "loading"
 image1, image2, image3 = None, None, None
 time = 0.0
 

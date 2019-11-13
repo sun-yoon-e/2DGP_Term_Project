@@ -1,7 +1,8 @@
+from pico2d import *
 import game_framework
 import re_loading_scene
-from pico2d import *
 
+name = "over"
 over = None
 time = 0.0
 

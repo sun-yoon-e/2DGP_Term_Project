@@ -1,7 +1,8 @@
+from pico2d import *
 import game_framework
 import game_over_scene
-from pico2d import *
 
+name = "pause"
 pause = None
 
 

@@ -1,4 +1,5 @@
 from pico2d import *
+name = "background"
 
 
 class Background:
