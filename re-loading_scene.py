@@ -1,10 +1,10 @@
 import game_framework
 from pico2d import *
 
-success = None
+re_loading = None
 
 
-class Success:
+class Re_loading:
     def __init__(self):
         pass
 
@@ -16,25 +16,25 @@ class Success:
 
 
 def enter():
-    global success
-    success = Success()
+    global re_loading
+    re_loading = Re_loading()
 
 
 def exit():
-    global success
-    del success
+    global re_loading
+    del re_loading
 
 
 def update():
-    global success
-    success.update()
+    global re_loading
+    re_loading.update()
 
 
 def draw():
-    global success
+    global re_loading
     clear_canvas()
-    success.update()
-    success.draw()
+    re_loading.update()
+    re_loading.draw()
     update_canvas()
 
 

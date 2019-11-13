@@ -6,13 +6,16 @@ over = None
 
 class Over:
     def __init__(self):
-        pass
+        self.image_logo = load_image('resource/@Using/game over logo.png')
+        self.image_character1 = load_image('resource/@Using/over.png')
+        self.image_character2 = load_image('resource/@Using/over2.png')
+        self.image_back = load_image('resource/@Using/over&success.png')
 
     def update(self):
         pass
 
     def draw(self):
-        pass
+        self.image_back.clip_draw(0, 0, 482, 140, 400, 145, 800, 290)
 
 
 def enter():
@@ -41,7 +44,8 @@ def draw():
 def handle_events():
     events = get_events()
     for event in events:
-        pass
+        if event.type == SDL_QUIT:
+            game_framework.quit()
 
 
 
