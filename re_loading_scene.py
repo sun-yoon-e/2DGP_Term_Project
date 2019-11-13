@@ -1,23 +1,14 @@
 import game_framework
+import select_scene
 from pico2d import *
 
 re_loading = None
-
-
-class Re_loading:
-    def __init__(self):
-        pass
-
-    def update(self):
-        pass
-
-    def draw(self):
-        pass
+time = 0.0
 
 
 def enter():
     global re_loading
-    re_loading = Re_loading()
+    re_loading = load_image('resource/@Using/few.jpg')
 
 
 def exit():
@@ -26,15 +17,19 @@ def exit():
 
 
 def update():
-    global re_loading
-    re_loading.update()
+    global time
+
+    if time > 2.0:
+        time = 0
+        game_framework.change_state(select_scene)
+    delay(0.01)
+    time += 0.01
 
 
 def draw():
     global re_loading
     clear_canvas()
-    re_loading.update()
-    re_loading.draw()
+    re_loading.draw(400, 145, 800, 290)
     update_canvas()
 
 

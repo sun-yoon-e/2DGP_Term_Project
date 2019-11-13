@@ -6,6 +6,8 @@ from pico2d import *
 
 import game_framework
 import game_world
+import game_success_scene
+import game_over_scene
 import select_scene
 import pause_scene
 
@@ -81,8 +83,13 @@ def handle_events():
             #game_framework.change_state(select_scene)
         elif event.type == SDL_KEYDOWN and event.key == SDLK_p:
             game_framework.push_state(pause_scene)
+
+        #(확인용) 키 입력 시 화면 전환
+        elif event.type == SDL_KEYDOWN and event.key == SDLK_i:
+            game_framework.push_state(game_success_scene)
         elif event.type == SDL_KEYDOWN and event.key == SDLK_o:
-            game_framework.push_state(game_success)
+            game_framework.push_state(game_over_scene)
+
         else:
             if select_scene.select == 1:
                 character_spongebob.handle_events(event)

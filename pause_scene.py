@@ -1,5 +1,5 @@
 import game_framework
-import gameover_scene
+import game_over_scene
 from pico2d import *
 
 pause = None
@@ -53,7 +53,7 @@ def handle_events():
             if 100 < event.x < 700 and 170 < 290 - 1 - event.y < 250:
                 game_framework.pop_state()
             elif 250 < event.x < 550 and 30 < 290 - 1 - event.y < 110:
-                game_framework.change_state(gameover_scene)
+                game_framework.change_state(game_over_scene)
 
 
 def pause():
