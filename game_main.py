@@ -81,6 +81,8 @@ def handle_events():
             #game_framework.change_state(select_scene)
         elif event.type == SDL_KEYDOWN and event.key == SDLK_p:
             game_framework.push_state(pause_scene)
+        elif event.type == SDL_KEYDOWN and event.key == SDLK_o:
+            game_framework.push_state(game_success)
         else:
             if select_scene.select == 1:
                 character_spongebob.handle_events(event)
