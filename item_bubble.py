@@ -20,3 +20,4 @@ class Bubble:
 
     def draw(self):
         self.image.clip_draw(0, 0, 65, 45, self.x, self.y)
+
