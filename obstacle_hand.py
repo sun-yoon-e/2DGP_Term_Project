@@ -19,3 +19,4 @@ class Hand:
 
     def draw(self):
         self.image.clip_draw(0, 0, 70, 180, self.x, self.y)
+
