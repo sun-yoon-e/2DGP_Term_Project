@@ -11,6 +11,7 @@ class Over:
     def __init__(self):
         self.image_logo1 = load_image('resource/@Using/start button.png')
         self.image_logo2 = load_image('resource/@Using/game over logo.png')
+        self.image_logo3 = load_image('resource/@Using/quit.png')
         self.image_character1 = load_image('resource/@Using/over.png')
         self.image_character2 = load_image('resource/@Using/over2.png')
         self.image_back = load_image('resource/@Using/over&success.png')
@@ -30,7 +31,8 @@ class Over:
             self.image_character1.draw(220, 100)
         elif time >= 2.0:
             self.image_character2.draw(220, 100)
-            self.image_logo1.draw(650,50)
+            self.image_logo1.draw(650, 65)
+            self.image_logo3.draw(650, 25, 75, 20)
 
 
 
@@ -63,8 +65,10 @@ def handle_events():
         if event.type == SDL_QUIT:
             game_framework.quit()
         elif (event.type, event.button) == (SDL_MOUSEBUTTONDOWN, SDL_BUTTON_LEFT):
-            if 575 < event.x < 725 and 37 < 290 - 1 - event.y < 63:
+            if 650 - 75 < event.x < 650 + 75 and 65 - 13 < 290 - 1 - event.y < 65 + 13:
                 game_framework.change_state(re_loading_scene)
+            elif 650 - 37 < event.x < 650 + 37 and 25 - 10 < 290 - 1 - event.y < 25 + 10:
+                game_framework.quit()
 
 
 def pause():

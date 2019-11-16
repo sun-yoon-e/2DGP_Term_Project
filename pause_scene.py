@@ -52,9 +52,9 @@ def handle_events():
         if event.type == SDL_QUIT:
             game_framework.quit()
         elif (event.type, event.button) == (SDL_MOUSEBUTTONDOWN, SDL_BUTTON_LEFT):
-            if 100 < event.x < 700 and 170 < 290 - 1 - event.y < 250:
+            if 400 - 300 < event.x < 400 +300 and 210 - 40 < 290 - 1 - event.y < 210 + 40:
                 game_framework.pop_state()
-            elif 250 < event.x < 550 and 30 < 290 - 1 - event.y < 110:
+            elif 400 - 150 < event.x < 400 + 150 and 70 - 40 < 290 - 1 - event.y < 70 + 40:
                 game_framework.change_state(game_over_scene)
                 game_world.clear()
 

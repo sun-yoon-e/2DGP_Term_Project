@@ -18,7 +18,6 @@ from character_patrick import Patrick
 from character_spongebob import Spongebob
 from item_krabby_patty import Krabby_Patty
 from item_mr_krab import Mr_krab
-#from item_bubble import Bubble
 
 name = "main"
 background = None
@@ -27,7 +26,6 @@ obstacles = None
 #obstacle_pink_jellyfish = None
 #obstacle_violet_jellyfish = None
 #items = None
-item_bubble = None
 item_krabby_patty = None
 item_mr_krab = None
 character_spongebob = None
@@ -45,14 +43,13 @@ def collide(a, b):
 
 
 def enter():
-    global obstacle_pink_jellyfish, obstacle_violet_jellyfish, obstacle_hand, character_spongebob, character_patrick, item_mr_krab, item_bubble, item_krabby_patty, background
+    global obstacle_pink_jellyfish, obstacle_violet_jellyfish, obstacle_hand, character_spongebob, character_patrick, item_mr_krab, item_krabby_patty, background
     background = Background()
     obstacle_hand = Hand()
     obstacle_pink_jellyfish = Pink_Jellyfish()
     obstacle_violet_jellyfish = Violet_Jellyfish()
     item_krabby_patty = Krabby_Patty()
     item_mr_krab = Mr_krab()
-    #item_bubble = Bubble()
     if select_scene.select == 1:
         character_spongebob = Spongebob()
     elif select_scene.select == 2:
@@ -69,12 +66,11 @@ def enter():
     game_world.add_object(obstacle_violet_jellyfish, 1)
 
     # global items
-    # items = [Balloon() for i in range(1)] + [Bubble() for i in range(1)] + [Mr_krab() for i in range(1)]
+    # items = [Krabby_Patty() for i in range(1)] + [Mr_krab() for i in range(1)]
     # game_world.add_objects(items, 1)
 
     game_world.add_object(item_krabby_patty, 1)
     game_world.add_object(item_mr_krab, 1)
-    #game_world.add_object(item_bubble, 1)
 
     if select_scene.select == 1:
         game_world.add_object(character_spongebob, 1)
@@ -83,7 +79,7 @@ def enter():
 
 
 def exit():
-    global obstacle_pink_jellyfish, obstacle_violet_jellyfish, obstacle_hand, character_spongebob, character_patrick, item_mr_krab, item_bubble, item_krabby_patty, background
+    global obstacle_pink_jellyfish, obstacle_violet_jellyfish, obstacle_hand, character_spongebob, character_patrick, item_mr_krab, item_krabby_patty, background
     game_world.clear()
 
 
@@ -100,8 +96,6 @@ def handle_events():
     for event in events:
         if event.type == SDL_QUIT:
             game_framework.quit()
-        # elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
-        # game_framework.change_state(select_scene)
         elif event.type == SDL_KEYDOWN and event.key == SDLK_p:
             game_framework.push_state(pause_scene)
 
@@ -132,17 +126,13 @@ def update():
             game_framework.change_state(game_over_scene)
             game_world.clear()
 
-        #if collide(character_spongebob, item_bubble):
-            #game_world.remove_object(item_bubble)
         if collide(character_spongebob, item_krabby_patty):
-            game_world.remove_object(item_krabby_patty)
+            item_krabby_patty.x = -10
         if collide(character_spongebob, item_mr_krab):
             obstacle_hand.x = -10
             obstacle_pink_jellyfish.x = -10
             obstacle_violet_jellyfish.x = -10
-            item_krabby_patty.x = -10
             item_mr_krab.x = -10
-            #item_bubble.x = -10
 
     elif select_scene.select == 2:
         if collide(character_patrick, obstacle_hand):
@@ -155,17 +145,13 @@ def update():
             game_framework.change_state(game_over_scene)
             game_world.clear()
 
-        #if collide(character_patrick, item_bubble):
-            #game_world.remove_object(item_bubble)
         if collide(character_patrick, item_krabby_patty):
-            game_world.remove_object(item_krabby_patty)
+            item_krabby_patty.x = -10
         if collide(character_patrick, item_mr_krab):
             obstacle_hand.x = -10
             obstacle_pink_jellyfish.x = -10
             obstacle_violet_jellyfish.x = -10
-            #item_krabby_patty.x = -10
-            #item_mr_krab.x = -10
-            #item_bubble.x = -10
+            item_mr_krab.x = -10
 
 
 def draw():
