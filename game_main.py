@@ -22,14 +22,26 @@ from item_balloon import Balloon
 
 name = "main"
 background = None
-obstacle_hand = None
-obstacle_pink_jellyfish = None
-obstacle_violet_jellyfish = None
-item_balloon = None
-item_bubble = None
-item_mr_krab = None
+obstacles = None
+#obstacle_hand = None
+#obstacle_pink_jellyfish = None
+#obstacle_violet_jellyfish = None
+items = None
+#item_balloon = None
+#item_bubble = None
+#item_mr_krab = None
 character_spongebob = None
 character_patrick = None
+
+
+def collide(a, b):
+    left_a, bottom_a, right_a, top_a = a.get_bb()
+    left_b, bottom_b, right_b, top_b = b.get_bb()
+    #if left_a > right_b: return False
+    if right_a < left_b: return False
+    if top_a < bottom_b: return False
+    #if bottom_a > top_b: return False
+    return True
 
 
 def enter():
@@ -47,12 +59,23 @@ def enter():
         character_patrick = Patrick()
 
     game_world.add_object(background, 0)
-    game_world.add_object(obstacle_hand, 1)
-    game_world.add_object(obstacle_pink_jellyfish, 1)
-    game_world.add_object(obstacle_violet_jellyfish, 1)
-    game_world.add_object(item_balloon, 1)
-    game_world.add_object(item_bubble, 1)
-    game_world.add_object(item_mr_krab, 1)
+
+    global obstacles
+    obstacles = [Hand() for i in range(1)] + [Pink_Jellyfish() for i in range(1)] + [Violet_Jellyfish() for i in range(1)]
+    game_world.add_objects(obstacles, 1)
+
+    #game_world.add_object(obstacle_hand, 1)
+    #game_world.add_object(obstacle_pink_jellyfish, 1)
+    #game_world.add_object(obstacle_violet_jellyfish, 1)
+
+    global items
+    items = [Balloon() for i in range(1)] + [Bubble() for i in range(1)] + [Mr_krab() for i in range(1)]
+    game_world.add_objects(items, 1)
+
+    #game_world.add_object(item_balloon, 1)
+    #game_world.add_object(item_bubble, 1)
+    #game_world.add_object(item_mr_krab, 1)
+
     if select_scene.select == 1:
         game_world.add_object(character_spongebob, 1)
     elif select_scene.select == 2:
@@ -97,6 +120,21 @@ def handle_events():
 def update():
     for game_object in game_world.all_objects():
         game_object.update()
+
+    if select_scene.select == 1:
+        for obstacle in obstacles:
+            if collide(character_spongebob, obstacle):
+                game_world.remove_object(obstacle)
+        for item in items:
+            if collide(character_spongebob, item):
+                game_world.remove_object(item)
+    elif select_scene.select == 2:
+        for obstacle in obstacles:
+            if collide(character_patrick, obstacle):
+                game_world.remove_object(obstacle)
+        for item in items:
+            if collide(character_patrick, items):
+                game_world.remove_object(item)
 
 
 def draw():
