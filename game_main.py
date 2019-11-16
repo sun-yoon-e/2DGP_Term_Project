@@ -124,16 +124,16 @@ def update():
     if select_scene.select == 1:
         for obstacle in obstacles:
             if collide(character_spongebob, obstacle):
-                game_world.remove_object(obstacle)
+                game_framework.change_state(game_over_scene)
         for item in items:
             if collide(character_spongebob, item):
                 game_world.remove_object(item)
     elif select_scene.select == 2:
         for obstacle in obstacles:
             if collide(character_patrick, obstacle):
-                game_world.remove_object(obstacle)
+                game_framework.change_state(game_over_scene)
         for item in items:
-            if collide(character_patrick, items):
+            if collide(character_patrick, item):
                 game_world.remove_object(item)
 
 
