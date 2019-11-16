@@ -1,5 +1,6 @@
 from pico2d import *
 import game_framework
+import  game_world
 import game_over_scene
 
 name = "pause"
@@ -55,6 +56,7 @@ def handle_events():
                 game_framework.pop_state()
             elif 250 < event.x < 550 and 30 < 290 - 1 - event.y < 110:
                 game_framework.change_state(game_over_scene)
+                game_world.clear()
 
 
 def pause():
