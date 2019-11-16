@@ -70,13 +70,6 @@ class Spongebob:
         self.cur_state = RunState
         self.cur_state.enter(self, None)
 
-    def change_state(self, state):
-        if len(self.event_que) > 0:
-            event = self.event_que.pop()
-            self.cur_state.exit(self, event)
-            self.cur_state = next_state_table[self.cur_state][event]
-            self.cur_state.enter(self, event)
-
     def add_event(self, event):
         self.event_que.insert(0, event)
 

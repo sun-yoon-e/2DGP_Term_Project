@@ -26,9 +26,9 @@ class Over:
         self.image_back.clip_draw(0, 135, 482, 150, 400, 145, 800, 290)
         self.image_logo2.draw(160, 230, 300, 40)
 
-        if time < 2.5:
+        if time < 2.0:
             self.image_character1.draw(220, 100)
-        elif time > 2.5:
+        elif time > 2.0:
             self.image_character2.draw(220, 100)
             self.image_logo1.draw(650,50)
 
