@@ -86,7 +86,7 @@ class Spongebob:
         draw_rectangle(*self.get_bb())
 
     def get_bb(self):
-        return self.x, self.y - 40, self.x + 35, self.y + 40
+        return self.x, self.y - 45, self.x + 35, self.y + 45
 
     def handle_events(self, event):
         if (event.type, event.key) in key_event_table:

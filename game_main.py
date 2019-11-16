@@ -37,10 +37,10 @@ character_patrick = None
 def collide(a, b):
     left_a, bottom_a, right_a, top_a = a.get_bb()
     left_b, bottom_b, right_b, top_b = b.get_bb()
-    #if left_a > right_b: return False
+    if left_a > right_b: return False
     if right_a < left_b: return False
     if top_a < bottom_b: return False
-    #if bottom_a > top_b: return False
+    if bottom_a > top_b: return False
     return True
 
 
@@ -68,13 +68,13 @@ def enter():
     #game_world.add_object(obstacle_pink_jellyfish, 1)
     #game_world.add_object(obstacle_violet_jellyfish, 1)
 
-    global items
-    items = [Balloon() for i in range(1)] + [Bubble() for i in range(1)] + [Mr_krab() for i in range(1)]
-    game_world.add_objects(items, 1)
+    #global items
+    #items = [Balloon() for i in range(1)] + [Bubble() for i in range(1)] + [Mr_krab() for i in range(1)]
+    #game_world.add_objects(items, 1)
 
-    #game_world.add_object(item_balloon, 1)
-    #game_world.add_object(item_bubble, 1)
-    #game_world.add_object(item_mr_krab, 1)
+    game_world.add_object(item_balloon, 1)
+    game_world.add_object(item_bubble, 1)
+    game_world.add_object(item_mr_krab, 1)
 
     if select_scene.select == 1:
         game_world.add_object(character_spongebob, 1)
@@ -125,16 +125,17 @@ def update():
         for obstacle in obstacles:
             if collide(character_spongebob, obstacle):
                 game_framework.change_state(game_over_scene)
-        for item in items:
-            if collide(character_spongebob, item):
-                game_world.remove_object(item)
+        if collide(character_spongebob, item_balloon):
+            game_world.remove_object(item_balloon)
+        if collide(character_spongebob, item_bubble):
+            pass
+        if collide(character_spongebob, item_mr_krab):
+            pass
+
     elif select_scene.select == 2:
         for obstacle in obstacles:
             if collide(character_patrick, obstacle):
                 game_framework.change_state(game_over_scene)
-        for item in items:
-            if collide(character_patrick, item):
-                game_world.remove_object(item)
 
 
 def draw():
