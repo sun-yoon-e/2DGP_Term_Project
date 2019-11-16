@@ -25,4 +25,4 @@ class Balloon:
         draw_rectangle(*self.get_bb())
 
     def get_bb(self):
-        return self.x - 10, self.y - 20, self.x + 10, self.y + 20
+        return self.x - 10, self.y - 20, self.x + 10, self.y + 15

@@ -16,12 +16,14 @@ class Violet_Jellyfish:
 
     def update(self):
         self.frame = (self.frame + 1) % 4
-        if self.x + self.random_x + 300 <= 0:
+        if self.x + self.random_x <= 0:
             self.x = 1000
             self.random_x = random.randint(0, 500)
         self.x -= 10
 
     def draw(self):
-        self.image.clip_draw(self.frame * 30, 0, 30, 35, self.x + self.random_x, self.y)
-        if self.x <= 800:
-            self.image.clip_draw(self.frame * 30, 0, 30, 35, self.x + 300, self.y)
+        self.image.clip_draw(self.frame * 30, 0, 30, 35, self.x, self.y)
+        draw_rectangle(*self.get_bb())
+
+    def get_bb(self):
+        return self.x - 10, self.y - 15, self.x, self.y + 15
