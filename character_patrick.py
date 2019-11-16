@@ -69,7 +69,7 @@ class Patrick:
         self.event_que = []
         self.cur_state = RunState
         self.cur_state.enter(self, None)
-        
+
     def add_event(self, event):
         self.event_que.insert(0, event)
 
@@ -83,6 +83,10 @@ class Patrick:
 
     def draw(self):
         self.cur_state.draw(self)
+        draw_rectangle(*self.get_bb())
+
+    def get_bb(self):
+        return self.x, self.y - 45, self.x + 35, self.y + 45
 
     def handle_events(self, event):
         if (event.type, event.key) in key_event_table:
