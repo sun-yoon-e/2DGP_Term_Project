@@ -124,10 +124,13 @@ def update():
     if select_scene.select == 1:
         if collide(character_spongebob, obstacle_hand):
             game_framework.change_state(game_over_scene)
+            game_world.clear()
         if collide(character_spongebob, obstacle_pink_jellyfish):
             game_framework.change_state(game_over_scene)
+            game_world.clear()
         if collide(character_spongebob, obstacle_violet_jellyfish):
             game_framework.change_state(game_over_scene)
+            game_world.clear()
 
         if collide(character_spongebob, item_krabby_patty):
             game_world.remove_object(item_krabby_patty)
@@ -144,10 +147,13 @@ def update():
     elif select_scene.select == 2:
         if collide(character_patrick, obstacle_hand):
             game_framework.change_state(game_over_scene)
+            game_world.clear()
         if collide(character_patrick, obstacle_pink_jellyfish):
             game_framework.change_state(game_over_scene)
+            game_world.clear()
         if collide(character_patrick, obstacle_violet_jellyfish):
             game_framework.change_state(game_over_scene)
+            game_world.clear()
 
         if collide(character_patrick, item_krabby_patty):
             game_world.remove_object(item_krabby_patty)

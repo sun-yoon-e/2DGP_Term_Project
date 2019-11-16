@@ -28,7 +28,7 @@ class Over:
 
         if time < 2.0:
             self.image_character1.draw(220, 100)
-        elif time > 2.0:
+        elif time >= 2.0:
             self.image_character2.draw(220, 100)
             self.image_logo1.draw(650,50)
 
@@ -40,9 +40,9 @@ def enter():
 
 
 def exit():
-    global over
+    global over, time
     del over
-
+    time = 0
 
 def update():
     global over
