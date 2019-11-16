@@ -60,13 +60,13 @@ def enter():
 
     game_world.add_object(background, 0)
 
-    global obstacles
-    obstacles = [Hand() for i in range(1)] + [Pink_Jellyfish() for i in range(1)] + [Violet_Jellyfish() for i in range(1)]
-    game_world.add_objects(obstacles, 1)
+    #global obstacles
+    #obstacles = [Hand() for i in range(1)] + [Pink_Jellyfish() for i in range(1)] + [Violet_Jellyfish() for i in range(1)]
+    #game_world.add_objects(obstacles, 1)
 
-    #game_world.add_object(obstacle_hand, 1)
-    #game_world.add_object(obstacle_pink_jellyfish, 1)
-    #game_world.add_object(obstacle_violet_jellyfish, 1)
+    game_world.add_object(obstacle_hand, 1)
+    game_world.add_object(obstacle_pink_jellyfish, 1)
+    game_world.add_object(obstacle_violet_jellyfish, 1)
 
     #global items
     #items = [Balloon() for i in range(1)] + [Bubble() for i in range(1)] + [Mr_krab() for i in range(1)]
@@ -122,21 +122,44 @@ def update():
         game_object.update()
 
     if select_scene.select == 1:
-        for obstacle in obstacles:
-            if collide(character_spongebob, obstacle):
-                game_framework.change_state(game_over_scene)
+        if collide(character_patrick, obstacle_hand):
+            game_framework.change_state(game_over_scene)
+        if collide(character_patrick, obstacle_pink_jellyfish):
+            game_framework.change_state(game_over_scene)
+        if collide(character_patrick, obstacle_violet_jellyfish):
+            game_framework.change_state(game_over_scene)
+
         if collide(character_spongebob, item_balloon):
             game_world.remove_object(item_balloon)
         if collide(character_spongebob, item_bubble):
-            pass
+            game_world.remove_object(item_bubble)
         if collide(character_spongebob, item_mr_krab):
-            pass
+            obstacle_hand.x = -10
+            obstacle_pink_jellyfish.x = -10
+            obstacle_violet_jellyfish.x = -10
+            item_balloon.x = -10
+            item_bubble.x = -10
+            item_mr_krab.x = -10
 
     elif select_scene.select == 2:
-        for obstacle in obstacles:
-            if collide(character_patrick, obstacle):
+        if collide(character_patrick, obstacle_hand):
+                game_framework.change_state(game_over_scene)
+        if collide(character_patrick, obstacle_pink_jellyfish):
+                game_framework.change_state(game_over_scene)
+        if collide(character_patrick, obstacle_violet_jellyfish):
                 game_framework.change_state(game_over_scene)
 
+        if collide(character_spongebob, item_balloon):
+            game_world.remove_object(item_balloon)
+        if collide(character_spongebob, item_bubble):
+            game_world.remove_object(item_bubble)
+        if collide(character_spongebob, item_mr_krab):
+            obstacle_hand.x = -10
+            obstacle_pink_jellyfish.x = -10
+            obstacle_violet_jellyfish.x = -10
+            item_balloon.x = -10
+            item_bubble.x = -10
+            item_mr_krab.x = -10
 
 def draw():
     clear_canvas()
