@@ -20,4 +20,3 @@ class Mr_krab:
 
     def draw(self):
         self.image.clip_draw(0, 0, 50, 50, self.x, self.y)
-

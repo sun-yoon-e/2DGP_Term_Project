@@ -22,4 +22,3 @@ class Balloon:
 
     def draw(self):
         self.image.clip_draw(self.frame * 55, 0, 55, 40, self.x, self.y)
-

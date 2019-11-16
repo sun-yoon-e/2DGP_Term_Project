@@ -106,4 +106,3 @@ def draw():
         game_object.draw()
     update_canvas()
     delay(0.03)
-
