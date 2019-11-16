@@ -8,13 +8,13 @@ class Hand:
     image = None
 
     def __init__(self):
-        self.x, self.y = random.randint(800, 2000), 200
+        self.x, self.y = random.randint(1000, 2000), 200
         if Hand.image is None:
             Hand.image = load_image('resource/@Using/obstacle_hand.png')
 
     def update(self):
         if self.x <= 0:
-            self.x = random.randint(800, 2000)
+            self.x = random.randint(1000, 2000)
         self.x -= 10
 
     def draw(self):

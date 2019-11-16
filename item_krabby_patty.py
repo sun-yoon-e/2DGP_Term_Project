@@ -19,7 +19,7 @@ class Krabby_Patty:
         self.x -= 10
 
     def draw(self):
-        self.image.clip_draw(0, 0, 55, 50, self.x, self.y)
+        self.image.clip_draw(0, 0, 55, 50, self.x, self.y, 60, 60)
         draw_rectangle(*self.get_bb())
 
     def get_bb(self):

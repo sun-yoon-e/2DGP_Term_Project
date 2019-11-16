@@ -16,9 +16,9 @@ from obstacle_hand import Hand
 from background import Background
 from character_patrick import Patrick
 from character_spongebob import Spongebob
-from item_mr_krab import Mr_krab
-from item_bubble import Bubble
 from item_krabby_patty import Krabby_Patty
+from item_mr_krab import Mr_krab
+#from item_bubble import Bubble
 
 name = "main"
 background = None
@@ -27,8 +27,8 @@ obstacles = None
 #obstacle_pink_jellyfish = None
 #obstacle_violet_jellyfish = None
 #items = None
-item_krabby_patty = None
 item_bubble = None
+item_krabby_patty = None
 item_mr_krab = None
 character_spongebob = None
 character_patrick = None
@@ -51,8 +51,8 @@ def enter():
     obstacle_pink_jellyfish = Pink_Jellyfish()
     obstacle_violet_jellyfish = Violet_Jellyfish()
     item_krabby_patty = Krabby_Patty()
-    item_bubble = Bubble()
     item_mr_krab = Mr_krab()
+    #item_bubble = Bubble()
     if select_scene.select == 1:
         character_spongebob = Spongebob()
     elif select_scene.select == 2:
@@ -73,8 +73,8 @@ def enter():
     # game_world.add_objects(items, 1)
 
     game_world.add_object(item_krabby_patty, 1)
-    game_world.add_object(item_bubble, 1)
     game_world.add_object(item_mr_krab, 1)
+    #game_world.add_object(item_bubble, 1)
 
     if select_scene.select == 1:
         game_world.add_object(character_spongebob, 1)
@@ -132,17 +132,17 @@ def update():
             game_framework.change_state(game_over_scene)
             game_world.clear()
 
+        #if collide(character_spongebob, item_bubble):
+            #game_world.remove_object(item_bubble)
         if collide(character_spongebob, item_krabby_patty):
             game_world.remove_object(item_krabby_patty)
-        if collide(character_spongebob, item_bubble):
-            game_world.remove_object(item_bubble)
         if collide(character_spongebob, item_mr_krab):
             obstacle_hand.x = -10
             obstacle_pink_jellyfish.x = -10
             obstacle_violet_jellyfish.x = -10
             item_krabby_patty.x = -10
-            item_bubble.x = -10
             item_mr_krab.x = -10
+            #item_bubble.x = -10
 
     elif select_scene.select == 2:
         if collide(character_patrick, obstacle_hand):
@@ -155,17 +155,17 @@ def update():
             game_framework.change_state(game_over_scene)
             game_world.clear()
 
+        #if collide(character_patrick, item_bubble):
+            #game_world.remove_object(item_bubble)
         if collide(character_patrick, item_krabby_patty):
             game_world.remove_object(item_krabby_patty)
-        if collide(character_patrick, item_bubble):
-            game_world.remove_object(item_bubble)
         if collide(character_patrick, item_mr_krab):
             obstacle_hand.x = -10
             obstacle_pink_jellyfish.x = -10
             obstacle_violet_jellyfish.x = -10
-            item_krabby_patty.x = -10
-            item_bubble.x = -10
-            item_mr_krab.x = -10
+            #item_krabby_patty.x = -10
+            #item_mr_krab.x = -10
+            #item_bubble.x = -10
 
 
 def draw():

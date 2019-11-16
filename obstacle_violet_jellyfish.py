@@ -8,7 +8,7 @@ class Violet_Jellyfish:
     image = None
 
     def __init__(self):
-        self.x, self.y = random.randint(800, 1300), 30
+        self.x, self.y = random.randint(1000, 1300), 30
         self.frame = 0
         if Violet_Jellyfish.image is None:
             Violet_Jellyfish.image = load_image('resource/@Using/obstacle_violet.png')
@@ -16,7 +16,7 @@ class Violet_Jellyfish:
     def update(self):
         self.frame = (self.frame + 1) % 4
         if self.x <= 0:
-            self.x = random.randint(800, 1300)
+            self.x = random.randint(1000, 1300)
         self.x -= 10
 
     def draw(self):
