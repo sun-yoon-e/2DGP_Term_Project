@@ -20,3 +20,7 @@ class Mr_krab:
 
     def draw(self):
         self.image.clip_draw(0, 0, 50, 50, self.x, self.y)
+        draw_rectangle(*self.get_bb())
+
+    def get_bb(self):
+        return self.x - 20, self.y - 20, self.x, self.y + 20

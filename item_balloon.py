@@ -22,3 +22,7 @@ class Balloon:
 
     def draw(self):
         self.image.clip_draw(self.frame * 55, 0, 55, 40, self.x, self.y)
+        draw_rectangle(*self.get_bb())
+
+    def get_bb(self):
+        return self.x - 10, self.y - 20, self.x + 10, self.y + 20

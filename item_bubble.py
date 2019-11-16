@@ -20,3 +20,7 @@ class Bubble:
 
     def draw(self):
         self.image.clip_draw(0, 0, 65, 45, self.x, self.y)
+        draw_rectangle(*self.get_bb())
+
+    def get_bb(self):
+        return self.x - 30, self.y - 20, self.x, self.y + 20
