@@ -48,15 +48,15 @@ def enter():
 
     game_world.add_object(background, 0)
     game_world.add_object(obstacle_hand, 1)
-    game_world.add_object(obstacle_pink_jellyfish, 2)
-    game_world.add_object(obstacle_violet_jellyfish, 3)
-    game_world.add_object(item_balloon, 4)
-    game_world.add_object(item_bubble, 5)
-    game_world.add_object(item_mr_krab, 6)
+    game_world.add_object(obstacle_pink_jellyfish, 1)
+    game_world.add_object(obstacle_violet_jellyfish, 1)
+    game_world.add_object(item_balloon, 1)
+    game_world.add_object(item_bubble, 1)
+    game_world.add_object(item_mr_krab, 1)
     if select_scene.select == 1:
-        game_world.add_object(character_spongebob, 7)
+        game_world.add_object(character_spongebob, 1)
     elif select_scene.select == 2:
-        game_world.add_object(character_patrick, 7)
+        game_world.add_object(character_patrick, 1)
 
 
 def exit():
@@ -84,10 +84,9 @@ def handle_events():
 
         #(확인용) 키 입력 시 화면 전환
         elif event.type == SDL_KEYDOWN and event.key == SDLK_i:
-            game_framework.push_state(game_success_scene)
+            game_framework.change_state(game_success_scene)
         elif event.type == SDL_KEYDOWN and event.key == SDLK_o:
-            game_framework.push_state(game_over_scene)
-
+            game_framework.change_state(game_over_scene)
         else:
             if select_scene.select == 1:
                 character_spongebob.handle_events(event)
