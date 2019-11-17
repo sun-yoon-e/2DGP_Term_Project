@@ -155,30 +155,30 @@ def update():
             item_mr_krab.x = -10
 
     elif select_scene.select == 2:
-        if collide(character_spongebob, obstacle_hand):
+        if collide(character_patrick, obstacle_hand):
             if Giant:
                 obstacle_hand.x = -10
             if not Giant:
                 game_framework.change_state(game_over_scene)
                 game_world.clear()
-        if collide(character_spongebob, obstacle_pink_jellyfish):
+        if collide(character_patrick, obstacle_pink_jellyfish):
             if Giant:
                 obstacle_pink_jellyfish.x = -10
             if not Giant:
                 game_framework.change_state(game_over_scene)
                 game_world.clear()
-        if collide(character_spongebob, obstacle_violet_jellyfish):
+        if collide(character_patrick, obstacle_violet_jellyfish):
             if Giant:
                 obstacle_violet_jellyfish.x = -10
             if not Giant:
                 game_framework.change_state(game_over_scene)
                 game_world.clear()
 
-        if collide(character_spongebob, item_krabby_patty):
+        if collide(character_patrick, item_krabby_patty):
             Giant = True
             item_krabby_patty.x = -10
 
-        if collide(character_spongebob, item_mr_krab):
+        if collide(character_patrick, item_mr_krab):
             obstacle_hand.x = -10
             obstacle_pink_jellyfish.x = -10
             obstacle_violet_jellyfish.x = -10

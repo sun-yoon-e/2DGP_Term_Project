@@ -1,4 +1,6 @@
 from pico2d import *
+import game_main
+
 name = "patrick"
 
 SPACE_UP, SPACE_DOWN = range(2)
@@ -29,7 +31,11 @@ class RunState:
 
     @staticmethod
     def draw(character_patrick):
-        character_patrick.image.clip_draw(character_patrick.frame * 93, 0, 93, 105, character_patrick.x, character_patrick.y)
+        if game_main.Giant:
+            character_patrick.image.clip_draw(character_patrick.frame * 93, 0, 93, 105, character_patrick.x,
+                                              character_patrick.y, 140, 120)
+        else:
+            character_patrick.image.clip_draw(character_patrick.frame * 93, 0, 93, 105, character_patrick.x, character_patrick.y)
 
 
 class JumpState:
@@ -52,7 +58,11 @@ class JumpState:
 
     @staticmethod
     def draw(character_patrick):
-        character_patrick.image.clip_draw(character_patrick.frame * 93, 105, 93, 105, character_patrick.x, character_patrick.y)
+        if game_main.Giant:
+            character_patrick.image.clip_draw(character_patrick.frame * 93, 105, 93, 105, character_patrick.x,
+                                              character_patrick.y, 140, 120)
+        else:
+            character_patrick.image.clip_draw(character_patrick.frame * 93, 105, 93, 105, character_patrick.x, character_patrick.y)
 
 
 next_state_table = {
