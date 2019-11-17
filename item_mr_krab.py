@@ -15,7 +15,7 @@ class Mr_krab:
 
     def update(self):
         if self.x <= 0:
-            self.x = random.randint(2000, 4000)
+            self.x = random.randint(1500, 3000)
         self.x -= 10
 
     def draw(self):
