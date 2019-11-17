@@ -22,4 +22,4 @@ class Hand:
         draw_rectangle(*self.get_bb())
 
     def get_bb(self):
-        return self.x - 30, self.y - 90, self.x, self.y + 90
+        return self.x - 30, self.y - 90, self.x + 30, self.y + 90

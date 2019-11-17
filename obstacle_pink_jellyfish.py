@@ -24,4 +24,4 @@ class Pink_Jellyfish:
         draw_rectangle(*self.get_bb())
 
     def get_bb(self):
-        return self.x - 10, self.y - 15, self.x, self.y + 10
+        return self.x - 10, self.y - 15, self.x + 10, self.y + 10
