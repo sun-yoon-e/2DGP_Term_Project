@@ -1,4 +1,6 @@
 from pico2d import *
+import game_main
+
 name = "spongebob"
 
 SPACE_UP, SPACE_DOWN = range(2)
@@ -29,7 +31,11 @@ class RunState:
 
     @staticmethod
     def draw(character_spongebob):
-        character_spongebob.image.clip_draw(character_spongebob.frame * 83, 110, 83, 90, character_spongebob.x, character_spongebob.y)
+        if game_main.Giant:
+            character_spongebob.image.clip_draw(character_spongebob.frame * 83, 110, 83, 90, character_spongebob.x,
+                                                character_spongebob.y, 130, 110)
+        else:
+            character_spongebob.image.clip_draw(character_spongebob.frame * 83, 110, 83, 90, character_spongebob.x, character_spongebob.y)
 
 
 class JumpState:
@@ -52,7 +58,11 @@ class JumpState:
 
     @staticmethod
     def draw(character_spongebob):
-        character_spongebob.image.clip_draw(character_spongebob.frame * 75, 0, 75, 105, character_spongebob.x, character_spongebob.y)
+        if game_main.Giant:
+            character_spongebob.image.clip_draw(character_spongebob.frame * 75, 0, 75, 105, character_spongebob.x,
+                                                character_spongebob.y, 130, 150)
+        else:
+            character_spongebob.image.clip_draw(character_spongebob.frame * 75, 0, 75, 105, character_spongebob.x, character_spongebob.y)
 
 
 next_state_table = {
