@@ -31,6 +31,7 @@ item_mr_krab = None
 character_spongebob = None
 character_patrick = None
 Giant = False
+Giant_time = 0.0
 
 
 def collide(a, b):
@@ -113,9 +114,15 @@ def handle_events():
 
 
 def update():
-    global Giant
+    global Giant, Giant_time
+
     for game_object in game_world.all_objects():
         game_object.update()
+
+    if Giant:
+        Giant_time += 0.01
+        if Giant_time == 2.0:
+            Giant = False
 
     if select_scene.select == 1:
         if collide(character_spongebob, obstacle_hand):
@@ -140,6 +147,7 @@ def update():
         if collide(character_spongebob, item_krabby_patty):
             Giant = True
             item_krabby_patty.x = -10
+
         if collide(character_spongebob, item_mr_krab):
             obstacle_hand.x = -10
             obstacle_pink_jellyfish.x = -10
