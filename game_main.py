@@ -151,6 +151,7 @@ def update():
 
         if collide(character_spongebob, item_krabby_patty):
             Giant = True
+            Giant_time = 0.0
             item_krabby_patty.x = -10
 
         if collide(character_spongebob, item_mr_krab):
@@ -181,6 +182,7 @@ def update():
 
         if collide(character_patrick, item_krabby_patty):
             Giant = True
+            Giant_time = 0.0
             item_krabby_patty.x = -10
 
         if collide(character_patrick, item_mr_krab):
