@@ -124,8 +124,9 @@ def update():
         game_object.update()
 
     if Giant:
-        Giant_time += 0.1
-        if Giant_time == 1.0:
+        Giant_time += 0.01
+        if Giant_time >= 2.0:
+            Giant_time = 0.0
             Giant = False
 
     if select_scene.select == 1:
