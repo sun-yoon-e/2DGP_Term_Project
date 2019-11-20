@@ -32,8 +32,7 @@ class RunState:
     @staticmethod
     def draw(character_patrick):
         if game_main.Giant:
-            character_patrick.image.clip_draw(character_patrick.frame * 93, 0, 93, 105, character_patrick.x,
-                                              character_patrick.y, 140, 120)
+            character_patrick.image.clip_draw(character_patrick.frame * 93, 0, 93, 105, character_patrick.x, character_patrick.y + 10, 140, 130)
         else:
             character_patrick.image.clip_draw(character_patrick.frame * 93, 0, 93, 105, character_patrick.x, character_patrick.y)
 

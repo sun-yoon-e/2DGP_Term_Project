@@ -32,8 +32,7 @@ class RunState:
     @staticmethod
     def draw(character_spongebob):
         if game_main.Giant:
-            character_spongebob.image.clip_draw(character_spongebob.frame * 83, 110, 83, 90, character_spongebob.x,
-                                                character_spongebob.y, 130, 110)
+            character_spongebob.image.clip_draw(character_spongebob.frame * 83, 110, 83, 90, character_spongebob.x, character_spongebob.y + 10, 130, 120)
         else:
             character_spongebob.image.clip_draw(character_spongebob.frame * 83, 110, 83, 90, character_spongebob.x, character_spongebob.y)
 
