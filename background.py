@@ -37,6 +37,6 @@ class Background:
             self.image3.clip_draw(0, 500, 2882, 325, self.x3, 160)
 
         if self.x3 <= 0 and self.x4 >= -1441:
-            self.image4.clip_draw(0, 0, 2882, 350, self.x4, 150)
-            self.image4.clip_draw(0, 600, 2882, 340, self.x4, 95)
-            self.image4.clip_draw(0, 305, 2882, 330, self.x4, 155)
+            self.image4.clip_draw(0, 0, 2882, 340, self.x4, 150)
+            self.image4.clip_draw(0, 520, 2882, 400, self.x4, 80)
+            self.image4.clip_draw(0, 325, 2882, 280, self.x4, 160)
