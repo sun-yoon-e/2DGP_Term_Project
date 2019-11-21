@@ -37,6 +37,7 @@ character_patrick = None
 
 Giant = False
 Giant_time = 0.0
+Success_time = 0.0
 
 
 def collide(a, b):
@@ -197,7 +198,13 @@ def update():
         game_world.remove_object(obstacle_pink_jellyfish)
         game_world.remove_object(obstacle_violet_jellyfish)
         game_world.remove_object(item_krabby_patty)
-        game_world.remove_object9(item_mr_krab)
+        game_world.remove_object(item_mr_krab)
+
+        global  Success_time
+        Success_time += 0.1
+        if Success_time >= 1.0:
+            game_framework.change_state(game_success_scene)
+
 
 
 def draw():
