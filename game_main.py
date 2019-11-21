@@ -22,15 +22,16 @@ from item_mr_krab import Mr_krab
 name = "main"
 
 background = None
-obstacles = None
 
-#obstacle_hand = None
-#obstacle_pink_jellyfish = None
-#obstacle_violet_jellyfish = None
+#obstacles = None
+obstacle_hand = None
+obstacle_pink_jellyfish = None
+obstacle_violet_jellyfish = None
+
 #items = None
-
 item_krabby_patty = None
 item_mr_krab = None
+
 character_spongebob = None
 character_patrick = None
 
@@ -190,6 +191,13 @@ def update():
             obstacle_pink_jellyfish.x = -10
             obstacle_violet_jellyfish.x = -10
             item_mr_krab.x = -10
+
+    if background.x4 == -641:
+        game_world.remove_object(obstacle_hand)
+        game_world.remove_object(obstacle_pink_jellyfish)
+        game_world.remove_object(obstacle_violet_jellyfish)
+        game_world.remove_object(item_krabby_patty)
+        game_world.remove_object9(item_mr_krab)
 
 
 def draw():
