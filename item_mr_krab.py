@@ -8,7 +8,7 @@ class Mr_krab:
     image = None
 
     def __init__(self):
-        self.x, self.y = random.randint(1500, 2500), 40
+        self.x, self.y = random.randint(1500, 3000), 40
 
         if Mr_krab.image is None:
             Mr_krab.image = load_image('resource/@Using/item_mr.krab.png')
