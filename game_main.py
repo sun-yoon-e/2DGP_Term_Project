@@ -201,8 +201,8 @@ def update():
         game_world.remove_object(item_mr_krab)
 
         global  Success_time
-        Success_time += 0.01
-        if Success_time >= 2.0:
+        Success_time += 0.1
+        if Success_time >= 5.0:
             game_framework.change_state(game_success_scene)
 
 
