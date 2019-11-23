@@ -202,7 +202,7 @@ def update():
 
         global  Success_time
         Success_time += 0.1
-        if Success_time >= 5.0:
+        if Success_time >= 3.0:
             game_framework.change_state(game_success_scene)
 
 
