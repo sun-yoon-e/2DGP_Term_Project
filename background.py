@@ -3,12 +3,21 @@ name = "background"
 
 
 class Background:
+    image1 = None
+    image2 = None
+    image3 = None
+    image4 = None
+
     def __init__(self):
         self.x1, self.x2, self.x3, self.x4 = 1441, 2882, 2882, 2882
-        self.image1 = load_image('resource/@Using/map1.png')
-        self.image2 = load_image('resource/@Using/map2.png')
-        self.image3 = load_image('resource/@Using/map3.png')
-        self.image4 = load_image('resource/@Using/map4.png')
+        if Background.image1 is None:
+            self.image1 = load_image('resource/@Using/map1.png')
+        if Background.image2 is None:
+            self.image2 = load_image('resource/@Using/map2.png')
+        if Background.image3 is None:
+            self.image3 = load_image('resource/@Using/map3.png')
+        if Background.image4 is None:
+            self.image4 = load_image('resource/@Using/map4.png')
 
     def update(self):
         if self.x1 >= -1441:
