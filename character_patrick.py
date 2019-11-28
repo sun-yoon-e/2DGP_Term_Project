@@ -71,10 +71,14 @@ next_state_table = {
 
 
 class Patrick:
+    image = None
+
     def __init__(self):
+        if Patrick.image is None:
+            self.image = load_image('resource/@Using/patrick.png')
+
         self.x, self.y = 100, 50
         self.frame = 0
-        self.image = load_image('resource/@Using/patrick.png')
         self.event_que = []
         self.cur_state = RunState
         self.cur_state.enter(self, None)
