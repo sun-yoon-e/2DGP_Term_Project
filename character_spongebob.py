@@ -71,10 +71,14 @@ next_state_table = {
 
 
 class Spongebob:
+    image = None
+
     def __init__(self):
+        if Spongebob.image is None:
+            self.image = load_image('resource/@Using/spongebob.png')
+
         self.x, self.y = 100, 50
         self.frame = 0
-        self.image = load_image('resource/@Using/spongebob.png')
         self.event_que = []
         self.cur_state = RunState
         self.cur_state.enter(self, None)
