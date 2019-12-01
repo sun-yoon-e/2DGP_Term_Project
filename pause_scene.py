@@ -48,7 +48,6 @@ def update():
 def draw():
     global pause
     clear_canvas()
-    pause.update()
     pause.draw()
     update_canvas()
 
