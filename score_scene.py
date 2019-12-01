@@ -16,7 +16,7 @@ ranking = []
 def enter():
     global font, ranking
     if font is None:
-        font = load_font('resource/font/ENCR10B.TTF', 10)
+        font = load_font('resource/font/ENCR10B.TTF', 20)
 
     with open('ranking.txt', 'r') as f:
         ranking = json.load(f)
@@ -25,7 +25,7 @@ def enter():
     ranking.sort()
     ranking.reverse()
 
-    while ranking.__len__() > 5:
+    while ranking.__len__() > 7:
         ranking.remove(ranking[-1])
 
     with open('ranking.txt', 'w') as f:
@@ -57,11 +57,12 @@ def draw():
     for game_object in game_world.all_objects():
         game_object.draw()
 
-    font.draw(get_canvas_width() // 2, get_canvas_height() // 2 + 70, "[My Record : %.2f]" % record)
-    font.draw(get_canvas_width() // 2, get_canvas_height() // 2 + 40, "[Total Score]")
+    font.draw(get_canvas_width() // 2 - 250, get_canvas_height() // 2, "[My Record : %.2f]" % record)
+    font.draw(get_canvas_width() // 2 + 50, get_canvas_height() // 2 + 105, "[Total Score]")
 
     for i in range(0, ranking.__len__()):
-        font.draw(get_canvas_width() // 2 - 80, get_canvas_height() // 2 + 100 - 10 * i, "#" + str(i+1) + ". " + '%.2f' % ranking[i])
+        font.draw(get_canvas_width() // 2 + 80, get_canvas_height() // 2 + 70 - (30 * i),
+                  "#" + str(i+1) + ". " + '%.2f' % ranking[i])
     update_canvas()
 
 
