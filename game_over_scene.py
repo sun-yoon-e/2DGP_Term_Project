@@ -8,13 +8,26 @@ time = 0.0
 
 
 class Over:
+    image_logo1 = None
+    image_logo2 = None
+    image_logo3 = None
+    image_character1 = None
+    image_character2 = None
+    image_back = None
+
     def __init__(self):
-        self.image_logo1 = load_image('resource/@Using/start button.png')
-        self.image_logo2 = load_image('resource/@Using/game over logo.png')
-        self.image_logo3 = load_image('resource/@Using/quit.png')
-        self.image_character1 = load_image('resource/@Using/over.png')
-        self.image_character2 = load_image('resource/@Using/over2.png')
-        self.image_back = load_image('resource/@Using/over&success.png')
+        if Over.image_logo1 is None:
+            self.image_logo1 = load_image('resource/@Using/start button.png')
+        if Over.image_logo2 is None:
+            self.image_logo2 = load_image('resource/@Using/game over logo.png')
+        if Over.image_logo3 is None:
+            self.image_logo3 = load_image('resource/@Using/quit.png')
+        if Over.image_character1 is None:
+            self.image_character1 = load_image('resource/@Using/over.png')
+        if Over.image_character2 is None:
+            self.image_character2 = load_image('resource/@Using/over2.png')
+        if Over.image_back is None:
+            self.image_back = load_image('resource/@Using/over&success.png')
 
     def update(self):
         global time
