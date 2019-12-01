@@ -9,6 +9,7 @@ import game_success_scene
 import game_over_scene
 import select_scene
 import pause_scene
+import score_scene
 
 from obstacle_pink_jellyfish import Pink_Jellyfish
 from obstacle_violet_jellyfish import Violet_Jellyfish
@@ -136,18 +137,21 @@ def update():
             if Giant:
                 obstacle_hand.x = -10
             if not Giant:
+                score_scene.record = get_time() - character_spongebob.start_time
                 game_framework.change_state(game_over_scene)
                 game_world.clear()
         if collide(character_spongebob, obstacle_pink_jellyfish):
             if Giant:
                 obstacle_pink_jellyfish.x = -10
             if not Giant:
+                score_scene.record = get_time() - character_spongebob.start_time
                 game_framework.change_state(game_over_scene)
                 game_world.clear()
         if collide(character_spongebob, obstacle_violet_jellyfish):
             if Giant:
                 obstacle_violet_jellyfish.x = -10
             if not Giant:
+                score_scene.record = get_time() - character_spongebob.start_time
                 game_framework.change_state(game_over_scene)
                 game_world.clear()
 
@@ -167,18 +171,21 @@ def update():
             if Giant:
                 obstacle_hand.x = -10
             if not Giant:
+                score_scene.record = get_time() - character_patrick.start_time
                 game_framework.change_state(game_over_scene)
                 game_world.clear()
         if collide(character_patrick, obstacle_pink_jellyfish):
             if Giant:
                 obstacle_pink_jellyfish.x = -10
             if not Giant:
+                score_scene.record = get_time() - character_patrick.start_time
                 game_framework.change_state(game_over_scene)
                 game_world.clear()
         if collide(character_patrick, obstacle_violet_jellyfish):
             if Giant:
                 obstacle_violet_jellyfish.x = -10
             if not Giant:
+                score_scene.record = get_time() - character_patrick.start_time
                 game_framework.change_state(game_over_scene)
                 game_world.clear()
 
