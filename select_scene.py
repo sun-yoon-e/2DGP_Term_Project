@@ -60,7 +60,7 @@ def draw():
     # patrick.clip_draw(frame2 * 109, 0, 109, 130, 500, 80)
     patrick.clip_draw(frame2 * 100, 0, 100, 141, 500, 90)
     update_canvas()
-    delay(0.13)
+    delay(0.11)
 
 
 def pause():
