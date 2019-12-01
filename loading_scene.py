@@ -10,7 +10,7 @@ time = 0.0
 def enter():
     global image1, image2, image3
     if image1 is None:
-        image1 = load_image('resource/@Using/start_image1.jpg')
+        image1 = load_image('resource/@Using/start_image1.png')
     if image2 is None:
         image2 = load_image('resource/@Using/start_image2.png')
     if image3 is None:
