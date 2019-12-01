@@ -7,14 +7,30 @@ import game_world
 import game_over_scene
 import game_success_scene
 
-
-font = None
+score = None
 record = None
+font = None
 ranking = []
 
 
+class Score:
+    image = None
+
+    def __init__(self):
+        if Score.image is None:
+            self.image = load_image('resource/@Using/rank.png')
+            #self.image = load_image('resource/@Using/etc.png')
+
+    def update(self):
+        pass
+
+    def draw(self):
+        self.image.draw(400, 145, 800, 290)
+
 def enter():
-    global font, ranking
+    global score, font, ranking
+    score = Score()
+
     if font is None:
         font = load_font('resource/font/ENCR10B.TTF', 20)
 
@@ -33,7 +49,8 @@ def enter():
 
 
 def exit():
-    game_world.clear()
+    global score
+    del score
 
 
 def handle_events():
@@ -48,21 +65,24 @@ def handle_events():
 
 
 def update():
-    for game_object in game_world.all_objects():
-        game_object.update()
-
+    global score
+    score.update()
 
 def draw():
+    global score
     clear_canvas()
-    for game_object in game_world.all_objects():
-        game_object.draw()
+    score.draw()
 
     font.draw(get_canvas_width() // 2 - 250, get_canvas_height() // 2, "[My Record : %.2f]" % record)
+    #font.draw(get_canvas_width() // 2 - 250, get_canvas_height() // 2, "[My Record : %.2f]" % record, (255, 255, 0))
+
     font.draw(get_canvas_width() // 2 + 50, get_canvas_height() // 2 + 105, "[Total Score]")
+    #font.draw(get_canvas_width() // 2 + 50, get_canvas_height() // 2 + 105, "[Total Score]", (255, 255, 0))
 
     for i in range(0, ranking.__len__()):
         font.draw(get_canvas_width() // 2 + 80, get_canvas_height() // 2 + 70 - (30 * i),
-                  "#" + str(i+1) + ". " + '%.2f' % ranking[i])
+                  "#" + str(i + 1) + ". " + '%.2f' % ranking[i])
+        #font.draw(get_canvas_width() // 2 + 80, get_canvas_height() // 2 + 70 - (30 * i), "#" + str(i+1) + ". " + '%.2f' % ranking[i], (255, 255, 0))
     update_canvas()
 
 
