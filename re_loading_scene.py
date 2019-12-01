@@ -9,7 +9,8 @@ time = 0.0
 
 def enter():
     global re_loading
-    re_loading = load_image('resource/@Using/few.jpg')
+    if re_loading is None:
+        re_loading = load_image('resource/@Using/few.jpg')
 
 
 def exit():
