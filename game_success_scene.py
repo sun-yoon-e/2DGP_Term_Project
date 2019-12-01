@@ -8,12 +8,23 @@ time = 0.0
 
 
 class Success:
+    image_logo1 = None
+    image_logo2 = None
+    image_logo3 = None
+    image_character = None
+    image_back = None
+
     def __init__(self):
-        self.image_logo1 = load_image('resource/@Using/start button.png')
-        self.image_logo2 = load_image('resource/@Using/complete.png')
-        self.image_logo3 = load_image('resource/@Using/quit.png')
-        self.image_character = load_image('resource/@Using/success.png')
-        self.image_back = load_image('resource/@Using/over&success.png')
+        if Success.image_logo1 is None:
+            self.image_logo1 = load_image('resource/@Using/start button.png')
+        if Success.image_logo2 is None:
+            self.image_logo2 = load_image('resource/@Using/complete.png')
+        if Success.image_logo3 is None:
+            self.image_logo3 = load_image('resource/@Using/quit.png')
+        if Success.image_character is None:
+            self.image_character = load_image('resource/@Using/success.png')
+        if Success.image_back is None:
+            self.image_back = load_image('resource/@Using/over&success.png')
 
     def update(self):
         global time
