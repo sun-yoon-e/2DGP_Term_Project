@@ -8,10 +8,17 @@ pause = None
 
 
 class Pause:
+    image_back = None
+    image_continue = None
+    image_quit = None
+
     def __init__(self):
-        self.image_back = load_image('resource/@Using/pause.png')
-        self.image_continue = load_image('resource/@Using/continue.png')
-        self.image_quit = load_image('resource/@Using/quit.png')
+        if Pause.image_back is None:
+            self.image_back = load_image('resource/@Using/pause.png')
+        if Pause.image_continue is None:
+            self.image_continue = load_image('resource/@Using/continue.png')
+        if Pause.image_quit is None:
+            self.image_quit = load_image('resource/@Using/quit.png')
 
     def update(self):
         pass
