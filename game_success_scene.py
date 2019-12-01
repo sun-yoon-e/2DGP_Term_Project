@@ -46,14 +46,14 @@ class Success:
 
 
 def enter():
-    global success
+    global success, ranking
     success = Success()
+    ranking = False
 
 
 def exit():
-    global success, ranking
+    global success
     del success
-    ranking = False
 
 
 def update():

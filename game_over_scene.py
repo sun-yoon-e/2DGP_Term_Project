@@ -51,15 +51,15 @@ class Over:
 
 
 def enter():
-    global over
+    global over, ranking
     over = Over()
+    ranking = False
 
 
 def exit():
-    global over, time, ranking
+    global over, time
     del over
     time = 0
-    ranking = False
 
 
 def update():
