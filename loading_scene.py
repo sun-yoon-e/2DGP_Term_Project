@@ -9,9 +9,12 @@ time = 0.0
 
 def enter():
     global image1, image2, image3
-    image1 = load_image('resource/@Using/start_image1.jpg')
-    image2 = load_image('resource/@Using/start_image2.png')
-    image3 = load_image('resource/@Using/loading_image.png')
+    if image1 is None:
+        image1 = load_image('resource/@Using/start_image1.jpg')
+    if image2 is None:
+        image2 = load_image('resource/@Using/start_image2.png')
+    if image3 is None:
+        image3 = load_image('resource/@Using/loading_image.png')
 
 
 def exit():
