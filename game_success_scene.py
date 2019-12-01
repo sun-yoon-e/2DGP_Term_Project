@@ -1,10 +1,12 @@
 from pico2d import *
 import game_framework
 import re_loading_scene
+import score_scene
 
 name = "success"
 success = None
 time = 0.0
+ranking = False
 
 
 class Success:
@@ -49,8 +51,9 @@ def enter():
 
 
 def exit():
-    global success
+    global success, ranking
     del success
+    ranking = False
 
 
 def update():
@@ -67,10 +70,13 @@ def draw():
 
 
 def handle_events():
+    global ranking
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
             game_framework.quit()
+        elif event.type == SDL_KEYDOWN and event.key == SDLK_r:
+            game_framework.change_state(score_scene)
         elif (event.type, event.button) == (SDL_MOUSEBUTTONDOWN, SDL_BUTTON_LEFT):
             if 650 - 75 < event.x < 650 + 75 and 65 - 13 < 290 - 1 - event.y < 65 + 13:
                 game_framework.change_state(re_loading_scene)
