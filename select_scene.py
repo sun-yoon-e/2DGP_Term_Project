@@ -6,14 +6,19 @@ name = "select"
 image = None
 spongebob = None
 patrick = None
+frame1, frame2 = 0, 0
 select = 0
 
 
 def enter():
     global image, spongebob, patrick, frame1, frame2
-    image = load_image('resource/@Using/select.png')
-    spongebob = load_image('resource/@Using/spongebob_select.png')
-    patrick = load_image('resource/@Using/patrick_select.png')
+    if image is None:
+        image = load_image('resource/@Using/select.png')
+    if spongebob is None:
+        spongebob = load_image('resource/@Using/spongebob_select.png')
+    if patrick is None:
+        patrick = load_image('resource/@Using/patrick_select.png')
+
     frame1, frame2 = 0, 0
 
 
