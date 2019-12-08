@@ -1,6 +1,7 @@
 from pico2d import *
 import game_framework
 import game_main
+import loading_scene
 
 name = "select"
 image = None
@@ -8,25 +9,28 @@ spongebob = None
 patrick = None
 frame1, frame2 = 0, 0
 select = 0
+bgm = None
 
 
 def enter():
-    global image, spongebob, patrick, frame1, frame2
-    if image is None:
-        image = load_image('resource/@Using/select.png')
-    if spongebob is None:
-        spongebob = load_image('resource/@Using/spongebob_select.png')
-    if patrick is None:
-        patrick = load_image('resource/@Using/patrick_select.png')
+    global bgm, image, spongebob, patrick, frame1, frame2
+    image = load_image('resource/@Using/select.png')
+    spongebob = load_image('resource/@Using/spongebob_select.png')
+    patrick = load_image('resource/@Using/patrick_select.png')
 
     frame1, frame2 = 0, 0
 
+    bgm = load_music('resource/bgm/title.mp3')
+    bgm.set_volume(64)
+    bgm.repeat_play()
+
 
 def exit():
-    global image, spongebob, patrick
+    global bgm, image, spongebob, patrick
     del image
     del spongebob
     del patrick
+    bgm.stop()
 
 
 def handle_events():
