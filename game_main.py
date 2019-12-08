@@ -87,7 +87,7 @@ def enter():
     elif select_scene.select == 2:
         game_world.add_object(character_patrick, 1)
 
-    bgm = load_music('resource/bgm/main.mp3')
+    bgm = load_music('resource/bgm/theme.mp3')
     bgm.set_volume(64)
     bgm.repeat_play()
 
