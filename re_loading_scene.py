@@ -5,17 +5,21 @@ import select_scene
 name = "re-loading"
 re_loading = None
 time = 0.0
+bgm = None
 
 
 def enter():
-    global re_loading
-    if re_loading is None:
-        re_loading = load_image('resource/@Using/few.png')
+    global bgm, re_loading
+    re_loading = load_image('resource/@Using/few.png')
 
+    bgm = load_music('resource/bgm/loading.mp3')
+    bgm.set_volume(64)
+    bgm.play(1)
 
 def exit():
-    global re_loading
+    global bgm, re_loading
     del re_loading
+    bgm.stop()
 
 
 def update():
