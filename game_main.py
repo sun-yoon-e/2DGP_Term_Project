@@ -39,6 +39,7 @@ character_patrick = None
 Giant = False
 Giant_time = 0.0
 Success_time = 0.0
+bgm = None
 
 
 def collide(a, b):
@@ -52,7 +53,7 @@ def collide(a, b):
 
 
 def enter():
-    global obstacle_pink_jellyfish, obstacle_violet_jellyfish, obstacle_hand, character_spongebob, character_patrick, item_mr_krab, item_krabby_patty, background
+    global bgm, obstacle_pink_jellyfish, obstacle_violet_jellyfish, obstacle_hand, character_spongebob, character_patrick, item_mr_krab, item_krabby_patty, background
     background = Background()
     obstacle_hand = Hand()
     obstacle_pink_jellyfish = Pink_Jellyfish()
@@ -86,10 +87,15 @@ def enter():
     elif select_scene.select == 2:
         game_world.add_object(character_patrick, 1)
 
+    bgm = load_music('resource/bgm/main.mp3')
+    bgm.set_volume(64)
+    bgm.repeat_play()
+
 
 def exit():
-    global obstacle_pink_jellyfish, obstacle_violet_jellyfish, obstacle_hand, character_spongebob, character_patrick, item_mr_krab, item_krabby_patty, background
+    global bgm, obstacle_pink_jellyfish, obstacle_violet_jellyfish, obstacle_hand, character_spongebob, character_patrick, item_mr_krab, item_krabby_patty, background
     game_world.clear()
+    bgm.stop()
 
 
 def pause():
@@ -107,6 +113,7 @@ def handle_events():
             game_framework.quit()
         elif event.type == SDL_KEYDOWN and event.key == SDLK_p:
             game_framework.push_state(pause_scene)
+            bgm.pause()
 
         # (확인용) 키 입력 시 화면 전환
         elif event.type == SDL_KEYDOWN and event.key == SDLK_i:
@@ -211,7 +218,6 @@ def update():
         Success_time += 0.1
         if Success_time >= 3.0:
             game_framework.change_state(game_success_scene)
-
 
 
 def draw():
