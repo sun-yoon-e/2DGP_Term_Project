@@ -1,7 +1,8 @@
 from pico2d import *
 import game_framework
-import  game_world
+import game_world
 import game_over_scene
+import game_main
 
 name = "pause"
 pause = None
@@ -60,9 +61,11 @@ def handle_events():
         elif (event.type, event.button) == (SDL_MOUSEBUTTONDOWN, SDL_BUTTON_LEFT):
             if 400 - 300 < event.x < 400 +300 and 210 - 40 < 290 - 1 - event.y < 210 + 40:
                 game_framework.pop_state()
+                game_main.bgm.resume()
             elif 400 - 150 < event.x < 400 + 150 and 70 - 40 < 290 - 1 - event.y < 70 + 40:
                 game_framework.change_state(game_over_scene)
                 game_world.clear()
+                game_main.bgm.stop()
 
 
 def pause():

@@ -7,6 +7,7 @@ name = "success"
 success = None
 time = 0.0
 ranking = False
+bgm = None
 
 
 class Success:
@@ -46,14 +47,19 @@ class Success:
 
 
 def enter():
-    global success, ranking
+    global bgm, success, ranking
     success = Success()
     ranking = False
 
+    bgm = load_music('resource/bgm/success.mp3')
+    bgm.set_volume(64)
+    bgm.repeat_play()
+
 
 def exit():
-    global success
+    global bgm, success
     del success
+    bgm.stop()
 
 
 def update():

@@ -7,6 +7,7 @@ name = "over"
 over = None
 time = 0.0
 ranking = False
+bgm = None
 
 
 class Over:
@@ -51,15 +52,20 @@ class Over:
 
 
 def enter():
-    global over, ranking
+    global bgm, over, ranking
     over = Over()
     ranking = False
 
+    bgm = load_music('resource/bgm/over.mp3')
+    bgm.set_volume(64)
+    bgm.repeat_play()
+
 
 def exit():
-    global over, time
+    global bgm, over, time
     del over
     time = 0
+    bgm.stop()
 
 
 def update():
