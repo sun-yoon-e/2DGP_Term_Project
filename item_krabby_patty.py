@@ -20,7 +20,7 @@ class Krabby_Patty:
 
     def draw(self):
         self.image.clip_draw(0, 0, 55, 50, self.x, self.y, 60, 60)
-        draw_rectangle(*self.get_bb())
+        #draw_rectangle(*self.get_bb())
 
     def get_bb(self):
         return self.x - 20, self.y - 20, self.x + 20, self.y + 20

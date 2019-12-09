@@ -19,7 +19,7 @@ class Hand:
 
     def draw(self):
         self.image.clip_draw(0, 0, 70, 180, self.x, self.y)
-        draw_rectangle(*self.get_bb())
+        #draw_rectangle(*self.get_bb())
 
     def get_bb(self):
         return self.x - 30, self.y - 90, self.x + 30, self.y + 90

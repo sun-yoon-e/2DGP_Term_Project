@@ -97,7 +97,7 @@ class Spongebob:
 
     def draw(self):
         self.cur_state.draw(self)
-        draw_rectangle(*self.get_bb())
+        #draw_rectangle(*self.get_bb())
 
     def get_bb(self):
         return self.x, self.y - 45, self.x + 35, self.y + 45

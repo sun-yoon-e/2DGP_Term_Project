@@ -21,7 +21,7 @@ class Pink_Jellyfish:
 
     def draw(self):
         self.image.clip_draw(self.frame * 30, 0, 30, 35, self.x, self.y)
-        draw_rectangle(*self.get_bb())
+        #draw_rectangle(*self.get_bb())
 
     def get_bb(self):
         return self.x - 10, self.y - 15, self.x + 10, self.y + 10
